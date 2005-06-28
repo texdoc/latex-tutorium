@@ -1,0 +1,118 @@
+%       $Id: grafiken.tex,v 1.11 2004/08/02 11:33:02 bronger Exp $    
+%
+%     grafiken.tex -- Part of the LaTeX Tutorium
+%     Copyright 2004 Project Members of
+%                    http://sourceforge.net/projects/latex-tutorium/
+%                    
+%
+%   This program is free software; you can redistribute it and/or
+%   modify it under the terms of the Artistic License 2.0 as published
+%   by Larry Wall.  You should have received a copy of the Artistic
+%   License 2.0 along with this program in the file COPYING; if not,
+%   you can get it at
+%     http://dev.perl.org/rfc/346.html
+%   or contact the current maintainers of the LaTeX Tutorium.
+%
+%   This program is distributed in the hope that it will be useful, but
+%   WITHOUT ANY WARRANTY; without even the implied warranty of
+%   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%   Artistic License 2.0 for more details.
+%
+%   This file may only be distributed together with a copy of the LaTeX
+%   Turorium.
+%
+%   The LaTeX Tutorium consists of all files listed in manifest.txt.
+
+
+\section{Grafiken}
+\label{sec:Grafiken}
+
+Grafiken werden mit dem Menü-Punkt "`Einfügen--Grafik"' eingefügt oder mit
+\Alt+\Ctrl+\keystroke A (für "`Abbildung"').  Es öffnet sich dann das
+Dialogfenster von Abbildung~\vref{fig:Grafiken}.
+
+\begin{figure}
+  \centering
+  \includegraphics{abbildungen}
+  \caption{Das Dialogfenster zum Einfügen von Grafiken}
+  \label{fig:Grafiken}
+\end{figure}
+
+Man gibt dort zuerst den Dateinamen der Bilddatei an.  Dafür muss man die
+Grafik aus dem Programm, mit dem man die Grafik erstellt hat (z.\,B. Corel
+Draw, Photopaint, Excel oder die DigiCam-Software) erst einmal
+\emph{exportieren}, damit man eine Datei erhält.  Das hängt stark vom Programm
+ab, meist geht es über das Menü "`Datei--Exportieren"'.  Dann kann man für
+gewöhnlich die Art der Grafikdatei wählen.
+
+
+\subsection*{Einschub: Grundsätzliches zu Bilddateien}
+
+Es gibt viele Arten von Bilddateien; \LaTeX{} kann \JPEG"~, \PDF- und
+\PNG-Dateien direkt in einen Text einbetten:
+\begin{description}
+\item[\JPEG] ist für Fotos und ähnliches gedacht.  Die Dateien
+  haben meistens die Endung ``\verb|.jpg|''.
+\item[\PDF] ist eigentlich ein Dateiformat für ganze Dokumente.  \LaTeX{}
+  erzeugt am Ende ja selber ein \PDF\@.  Man kann aber auch einzelne Grafiken
+  als \PDF{} abspeichern, z.\,B. mit Corel Draw oder Excel.  Wie das geht,
+  steht in Anhang~\vref{sec:FreePDF-usage}\@.  Dieses Format sollte man für
+  Diagramme oder schematische Zeichnungen benutzen.
+\item[\PNG] schließlich ist auch für Zeichnungen geeignet, hat aber eine
+  geringere Qualität als \PDF\@.  Es ist daher eher eine Notlösung, oder für
+  spezielle Zwecke.
+\end{description}
+Es gibt noch viele andere Arten von Bilddateien.  Sie müssen, damit sie mit
+\LaTeX{} verwendbar sind, als \PDF{} abgespeichert werden (siehe wiederum
+Anhang~\ref{sec:FreePDF-usage})\@.
+
+\nopagebreak
+\noindent\hbox to \linewidth{\large\itshape\hfill Einschub Ende}
+\bigskip
+
+\begin{figure}
+  \centering
+  \includegraphics{loewe}
+  \caption{Ein Löwe, \LaTeX{}s Wappentier}
+  \label{fig:Löwe}
+\end{figure}
+
+\noindent
+Wenn man die Bilddatei angegeben hat, kann man noch eine Bildunterschrift und
+eventuell eine Marke eingeben (für Querverweise, siehe
+Seite~\pageref{sec:Querverweise}), und dann auf "`OK"' drücken.  Der Editor
+fügt dann die notwendigen Befehle in den Text ein:
+\begin{lstlisting}
+\begin{figure}
+  \centering
+  \includegraphics{loewe.jpg}
+  \caption{Ein Löwe, \LaTeX{}s Wappentier}
+  \label{fig:Löwe}
+\end{figure}
+\end{lstlisting}
+Das Ergebnis sieht man in Abbildung~\vref{fig:Löwe}.
+
+
+\subsection{Gleitende und nicht-gleitende Abbildungen}
+\label{sec:Gleitobjekte}
+
+Was wir gerade eingefügt haben, war eine sogenannte \emph{gleitende Abbildung}.
+Das ist eine Abbildung, für die \LaTeX{} den passenden Ort selber sucht.  Man
+kann dieses Verhalten auch beeinflussen, dafür sind die Felder unter
+"`Position"' in der Dialogbox da.  Alles, was man dort markiert, sind erlaubte
+Positionen für die Abbildung.
+
+\begin{wrapfigure}{r}{5cm}
+  \includegraphics{tabelle1}
+\end{wrapfigure}
+Eine gleitende Abbildung ist zwar etwas ungemein praktisches, und in den
+meisten Fällen nutzt man das auch.  Aber manchmal will man einfach nur eine
+Grafik an der aktuellen Position im Text haben.  Dann muss man die Option "`Als
+gleitende Abbildung einfügen"' abwählen.  Allerdings ist es dann nicht mehr
+möglich, eine Bildunterschrift zu setzen.
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "latex-tutorium"
+%%% End: 

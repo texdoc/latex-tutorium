@@ -1,0 +1,141 @@
+%%------------------------------------------------------------------------------
+%% functions for the different entries 
+%%------------------------------------------------------------------------------
+FUNCTION {article}
+% required: author, title, journal, year
+% optional: volume, number, pages, month, note, url, issn
+
+FUNCTION {book}
+% required: author/editor, title, publisher, year
+% optional: volume oder number, series, address, edition, pages, month, 
+%           note, url, isbn
+
+% booklet see below
+
+% conference see below
+
+FUNCTION {inbook}
+% required: author/editor, title, chapter/pages, publisher, year
+% optional: volume oder number, series, type, address, month, note, url, isbn
+
+FUNCTION {incollection}
+% required: author, title, booktitle, publisher, year
+% optional: editor, volume oder number, series, type, chapter, 
+%           pages, address, edition, month, note, url
+
+FUNCTION {inproceedings}
+% required: author, title, booktitle, year
+% optional: editor, volume oder number, series, pages, address, month, 
+%           organization, publisher, note, url
+
+FUNCTION {manual}
+% required: title
+% optional: author, organization, address, edition, month, year, note, url
+
+FUNCTION {mastersthesis}
+% required: author, title, school, year
+% optional: type, address, month, note, url
+
+FUNCTION {misc}
+% required: 
+% optional: author, title, howpublished, month, year, note, url
+
+FUNCTION {phdthesis}
+% required: author, title, school, year
+% optional: type, address, month, note, url
+
+FUNCTION {proceedings}
+% required: title, year
+% optional: editor, volume oder number, series, address, month, 
+%           organization, publisher, note, url
+
+FUNCTION {techreport}
+% required: author, title, institution, year
+% optional: type, number, address, month, note, url
+
+FUNCTION {booklet} 
+% required: title
+% optional: author, howpublished, address, month, year, note, url
+{ misc
+}
+
+FUNCTION {conference} 
+% required: author, title, note
+% optional: month, year, url
+{ inproceedings % like stated in BibTeXing by O. Patashnik
+}
+
+FUNCTION {masterthesis}
+% required: author, title, school, year
+% optional: type, address, month, note, url
+{ mastersthesis % just because of a typo in former version
+}
+
+FUNCTION {unpublished} 
+% required: author, title, note
+% optional: month, year, url
+{ misc % so far
+}
+
+FUNCTION {default.type} 
+% all other types
+{ misc
+}
+
+
+
+@PREAMBLE{"\ProvidesFile{latex-tutorium.bbl}[2004/01/14 Bibliographie fuer das
+ LaTeX-Turorium]"}
+
+@BOOK{LaTeX_Begleiter,
+   author = "Michel Goossens and others",
+   title = "{Der {\LaTeX}-Begleiter}",
+   publisher = "Addison-Wesley",
+   year = 1995,
+   isbn = "3-89319-826-1",
+   note = "F{\"u}r Fortgeschrittene, jedoch sehr komplett. Leider zu alt, aber
+                  eine frische englische Auf\/lage ist erschienen und soll
+                  {\"u}bersetzt werden",
+}
+
+@BOOK{Kopka1,
+   author = "Helmut Kopka",
+   title = "{{\LaTeX}, Band 1: Einf{\"u}hrung}",
+   publisher = "Addison-Wesley",
+   year = 2000,
+   edition = "zweite",
+   isbn = "3-8273-1557-3",
+   note = "Der Klassiker, aber veraltet, didaktisch schwach, zu teuer",
+}
+
+@BOOK{l2kurz,
+   author = "Walter Schmidt and J{\"o}rg Knappen and Hubert Partl and others",
+   title = "{\LaTeX{$2\epsilon$}-Kurzbeschreibung}",
+   url = "www.ctan.org/tex-archive/info/lshort/german/l2kurz.pdf",
+   year = 2003,
+   month = apr,
+   note = "Sehr brauchbare, aktuelle, leicht verst{\"a}ndliche Einf{\"u}hrung;
+           kostenlos",
+}
+
+@BOOK{KOMA-Script,
+   author = "Markus Kohm and Jens-Uwe Morawski",
+   title = "{{\sffamily KOMA-Script} -- Die Anleitung: Eine Sammlung von
+            Klassen und Paketen f{\"u}r {\LaTeX}}",
+   publisher = "Lehmanns Fachbuchhandlung",
+   year = 2003,
+   isbn = "3-9364-2745-3",
+   note = "Auch als allgemeines {\LaTeX}-Buch zu gebrauchen,
+           ausf{\"u}hrlich und top-aktuell.  Parallel zum Buch kostenlos online
+           erh{\"a}ltlich",
+   url = "www.ctan.org/tex-archive/macros/latex/contrib/koma-script/scrguide.pdf",
+}
+
+@BOOK{Fern-Uni-Hagen_LaTeX,
+   author = "J{\"u}rgens, Manuela",
+   title = "{{\LaTeX} -- eine Einf{\"u}hrung und ein bi{\ss}chen mehr{~\dots}}",
+   publisher = "Fern-Uni Hagen",
+   year = 2000,
+   url = "ftp://ftp.fernuni-hagen.de/pub/pdf/urz-broschueren/broschueren/a0260003.pdf",
+   note = "Oft empfohlene, sehr komplette Einf{\"u}hrung; kostenlos"
+}

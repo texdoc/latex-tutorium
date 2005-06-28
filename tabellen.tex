@@ -1,0 +1,141 @@
+%       $Id: tabellen.tex,v 1.13 2004/05/23 10:56:44 bronger Exp $    
+%
+%     tabellen.tex -- Part of the LaTeX Tutorium
+%     Copyright 2004 Project Members of
+%                    http://sourceforge.net/projects/latex-tutorium/
+%                    
+%
+%   This program is free software; you can redistribute it and/or
+%   modify it under the terms of the Artistic License 2.0 as published
+%   by Larry Wall.  You should have received a copy of the Artistic
+%   License 2.0 along with this program in the file COPYING; if not,
+%   you can get it at
+%     http://dev.perl.org/rfc/346.html
+%   or contact the current maintainers of the LaTeX Tutorium.
+%
+%   This program is distributed in the hope that it will be useful, but
+%   WITHOUT ANY WARRANTY; without even the implied warranty of
+%   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%   Artistic License 2.0 for more details.
+%
+%   This file may only be distributed together with a copy of the LaTeX
+%   Turorium.
+%
+%   The LaTeX Tutorium consists of all files listed in manifest.txt.
+
+\section{Tabellen}
+
+Um eine Tabelle einzufügen, sind drei Schritte notwendig.
+\begin{enumerate}
+\item Im Menü "`Einfügen--Tabelle"' wählen.  Entscheiden, ob die Tabelle
+  "`gleiten"' soll oder nicht (s.\,u.).  Als Ergebnis wird eine leere
+  Rumpf-Tabelle in das Dokument eingefügt.
+\item Die Zahl der Spalten und die Spalten-Ausrichtung angeben.
+\item Die Zeilen und Spalten der Tabelle eingeben.
+\end{enumerate}
+
+Betrachten wir die folgende Beispiel-Tabelle:
+\begin{center}
+  \begin{tabular}{llc}
+    \toprule
+    Sternname   &  Sternbild  &  Entfernung (Lj) \\
+    \midrule
+    Rigel       &  Orion      &     780          \\
+    Acturus     &  Boötes     &      37          \\
+    Deneb       &  Schwan     &    3200          \\
+    Rigil Kent  &  Zentaur    &      4,4         \\
+    \bottomrule             
+  \end{tabular}
+\end{center}
+
+\begin{figure}
+  \centering
+  \includegraphics{tabelle2}
+  \caption{Einfügen einer gleitenden Tabelle}
+  \label{fig:Gleittabelle}
+\end{figure}
+
+Um das einzugeben, wählt man im Menü "`Einfügen--Tabelle"' oder drückt
+\Alt+\Ctrl+\mbox{\keystroke T\@.}  Es öffnet sich das Dialog-Fenster in
+Abbildung~\ref{fig:Gleittabelle}.  Dort kann man noch eine Beschriftung und
+eine Marke eingeben (für Querverweise, siehe Seite~\pageref{sec:Querverweise}),
+und muss auf "`OK"' drücken.  Der Editor fügt dann automatisch eine Art Rumpf
+für die Tabelle ein:
+\begin{lstlisting}[escapeinside=`']
+\begin{table}
+  \centering
+  \begin{tabular}
+    `\textrm{\emph{(Hier stehen die Zeilen und Spalten)}}'
+  \end{tabular}
+  \caption{Sterne des Nord- und Südhimmels}
+  \label{tab:Sterne}
+\end{table}
+\end{lstlisting}
+Als nächstes müssen wir \LaTeX{} sagen, wieviele Spalten unsere Tabelle haben
+soll.  In unserem Fall sind es offensichtlich drei.  Also schreibe ich ein
+"`\lstinline|{llc}|"' hinter das \lstinline|\begin{tabular}|:
+\begin{lstlisting}
+  ...
+  \begin{tabular}{llc}
+    ...
+\end{lstlisting}
+Jeder der drei Buchstaben steht für eine Spalte.  Ein "`l"' bedeutet
+\emph{linksbündige} Ausrichtung.  Entsprechend stehen "`r"' und "`c"' fuer
+\emph{rechtsbündig} und \emph{zentriert}.  Für unser Beispiel sollen also die
+ersten beiden Spalten links ausgerichtet werden, und die letzte zentriert.
+
+Jetzt kann man die Tabelle mit Inhalt füllen.  Tabellen werden zeilenweise
+eingegeben.  Spalten trennt man mit "`\&"'"~Zei\-chen, Zeilen müssen mit
+"`\verb|\\|"' beendet werden:
+\begin{lstlisting}[basicstyle=\ttfamily\ifminion\else\footnotesize\fi]
+  ...
+  \begin{tabular}{llc}
+    \toprule
+    Sternname   &  Sternbild  &  Entfernung (Lj) \\
+    \midrule
+    Rigel       &  Orion      &     780          \\
+    Acturus     &  Boötes     &      37          \\
+    Deneb       &  Schwan     &    3200          \\
+    Rigil Kent  &  Zentaur    &      4,4         \\
+    \bottomrule             
+  \end{tabular}
+  ...
+\end{lstlisting}
+\lstinline{\toprule}, \lstinline{\midrule} und \lstinline{\bottomrule} erzeugen
+die obere, mittlere und untere Linie in der Tabelle.
+
+\begin{table}
+  \centering
+  \begin{tabular}{llc}
+    \toprule
+    Sternname   &  Sternbild  &  Entfernung (Lj) \\
+    \midrule
+    Rigel       &  Orion      &     780          \\
+    Acturus     &  Boötes     &      37          \\
+    Deneb       &  Schwan     &    3200          \\
+    Rigil Kent  &  Zentaur    &      4,4         \\
+    \bottomrule             
+  \end{tabular}
+  \caption{Sterne des Nord- und Südhimmels}
+  \label{tab:Sterne}
+\end{table}
+
+\nopagebreak
+Das Ergebnis sieht man in Tabelle~\vref{tab:Sterne}.  Tabellen sind in \LaTeX{}
+am Anfang etwas einschüchternd, aber man gewöhnt sich recht schnell daran.
+
+
+\subsection{Gleitende und nicht-gleitende Tabellen}
+\label{sec:Gleittabellen}
+
+Genauso wie auch bei Abbildungen gibt es \emph{gleitende} und
+\emph{nicht-gleitende} Tabellen.  Wir haben oben eine gleitende Tabelle
+eingefügt, d.\,h.\ sie kann eine Beschriftung haben, und \LaTeX{} sucht
+selbstständig den besten Platz für sie.  Das ganze ist völlig analog zu
+Abbildungen, siehe Abschnitt~\vref{sec:Gleitobjekte}.
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "latex-tutorium"
+%%% End: 

@@ -1,0 +1,203 @@
+%       $Id: formeln.tex,v 1.11 2006/02/28 12:07:11 bronger Exp $    
+%
+%     formeln.tex -- Part of the LaTeX Tutorium
+%     Copyright 2004 Project Members of
+%                    http://sourceforge.net/projects/latex-tutorium/
+%                    
+%
+%   This program is free software; you can redistribute it and/or
+%   modify it under the terms of the Artistic License 2.0 as published
+%   by Larry Wall.  You should have received a copy of the Artistic
+%   License 2.0 along with this program in the file COPYING; if not,
+%   you can get it at
+%     http://dev.perl.org/rfc/346.html
+%   or contact the current maintainers of the LaTeX Tutorium.
+%
+%   This program is distributed in the hope that it will be useful, but
+%   WITHOUT ANY WARRANTY; without even the implied warranty of
+%   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%   Artistic License 2.0 for more details.
+%
+%   This file may only be distributed together with a copy of the LaTeX
+%   Turorium.
+%
+%   The LaTeX Tutorium consists of all files listed in manifest.txt.
+
+
+\section{Formeln}
+\newcommand{\e}{\ensuremath{\mathrm{e}}}
+\newcommand{\im}{\ensuremath{\mathrm{\,j\,}}}
+\newcommand{\dOp}[1]{\ensuremath{\,d#1}}
+\begingroup\sffamily
+\begin{itemize}
+\item Verweis auf die umfassende \LaTeX-Symbol-Liste im Internet, d.h. nur
+  Tabellen mit den wichtigsten Symbolen einbinden.\NZB{Dagegen. :-) Nur
+  Verweis auf symbols-a4.pdf}
+\end{itemize}
+\endgroup
+
+Eine der Hauptstärken von \LaTeX\ ist die Formatierung mathematischer
+Formeln.  Ob es sich nun um den einfachen Pythagoras $a^2+b^2=c^2$ oder
+kompliziertere Formeln wie zum Beispiel die Fouriertransformierte eines
+Rechteckimpulses\footnote{Diese Formel muss man jetzt nicht verstehen,
+  es geht lediglich darum ein paar Möglichkeiten von \LaTeX\ zu
+  zeigen.}:
+\begin{align}
+  \notag
+  S(f) &= \int^{+\infty}_{-\infty} \Rect(t) \cdot \e^{-\im2\pi ft}
+  \dOp{t}&
+  \text{mit } \Rect(t) =\begin{cases}
+    1 &\text{für $|t|\leq \frac{1}{2}$}\\
+    0 &\text{für $|t| > \frac{1}{2}$}
+  \end{cases}\\
+  \notag
+  &= \int^{+\frac{1}{2}}_{-\frac{1}{2}} \e^{-\im 2 \pi ft} \dOp{t} \\
+  &= \frac{1}{-\im 2\pi f}\left(\e^{-\im \pi f} - \e^{\im \pi f}\right)
+  \intertext{mit der Umformung}
+  \sin(x) &= \frac{\e^{\im x}-\e^{-\im x}}{2\im}
+  \intertext{folgt:}
+  S(f)&= \frac{\sin(\pi f)}{\pi f}
+\end{align}
+%
+\LaTeX\ achtet dabei weitestgehend selbstständig auf korrekte Abstände
+zwischen Variablen, Funktionen und Operatoren.  Wie man in den beiden
+Beispielen erkennt, kann man Textformeln ("`inline"') und abgesetzte
+Formeln ("`displayed equations"') wählen.  Bei den inline-Formeln wird
+darauf geachtet, dass die Höhe der Zeichen z.\,B. das Integral ($\int$)
+an die Zeilenhöhe angepasst wird.
+
+
+\subsection{Textformeln}
+\label{sec:textformeln}
+
+Textformeln werden innerhalb des Satzes durch einschließen in
+\lstinline|$...$| eingegeben.  So erzeugt zum Beispiel der Quelltext:
+
+\begin{lstlisting}[numbers=left,basicstyle=\ttfamily\ifminion\else\footnotesize\fi]
+Das hier ist Fülltext. Wir machen mal eine einfache
+Integration: $\int_{a}^{b} x\,dx = \frac{1}{2} x^2
+\vert_{a}^{b}$ und sind jetzt glücklich, dass \LaTeX{}
+das Integralzeichen nicht in die restlichen Buchstaben
+schiebt.
+\end{lstlisting}
+%
+Folgende Ausgabe:
+%
+\begin{quotation}
+  \noindent
+  Das hier ist Fülltext. Wir machen mal eine einfache Integration:
+  $\int_{a}^{b} x\,dx = \frac{1}{2} x^2\vert_{a}^{b}$ und sind jetzt
+  glücklich, dass \LaTeX{} das Integralzeichen nicht in die restlichen
+  Buchstaben schiebt.
+\end{quotation}
+%
+Nun zu den verwendeten Befehlen.  Mit
+%
+\begin{lstlisting}
+\int_{a}^{b} x\,dx =
+\end{lstlisting}
+%
+setzt man das Integral mit der Untergrenze (\lstinline|_|) $a$ und der
+Obergrenze (\lstinline|^|) $b$. Die geschweiften Klammern wären hier
+nicht nötig, da es sich jeweils nur um einen Buchstaben handelt, aber
+wenn man beispielsweise $-4$ als Grenze nutzen möchte sind sie wichtig,
+da sonst nur das erste Zeichen ($-$) als Grenze erkannt wird.  Deshalb
+sollte man sie eigentlich immer setzen.
+
+Als nächstes folgt der Integrant und der Operator.  Das \lstinline{\,}
+erzeugt einen kleinen zusätzlichen Abstand, damit das $dx$ ein wenig vom
+$x$ abgesetzt wird.
+%
+\begin{lstlisting}
+\frac{1}{2} x^2\vert_{a}^{b}  
+\end{lstlisting}
+%
+Mittels \lstinline+\frac{Zähler}{Nenner}+ werden Brüche gesetzt. Diese
+kann man natürlich auch weiter verschachteln.  Beim Setzen von
+Exponenten (\lstinline|^|) gelten die selben Hinweise wie bei den
+Grenzen des Integrals.  \lstinline{\vert} setzt nun noch den vertikalen
+Strich mit den beiden Integrationsgrenzen.
+
+
+\subsection{Abgesetzte Formeln}
+\label{sec:abgesetzte-formeln}
+
+Abgesetzte Formeln bieten sich an sobald der Ausdruck komplexer wird, man
+komplette Herleitungen oder auch nur numerierte Formeln haben möchte.
+Eigentlich hätte man das obige Integral auch schon besser als abgesetzte
+Formel geschrieben, da es im Text etwas gequetscht wirkt.
+
+Generell sollte man heute immer \lstinline|\usepackage{amsmath}|
+benutzen, da dieses Paket einige deutliche Verbesserungen im Satz von
+Formeln und vor allem eine Vielzahl neuer Umgebungen für abgesetzte
+Formeln bereit hält.  Nehmen wir noch mal das Integral von eben:
+\begin{lstlisting}[numbers=left,basicstyle=\ttfamily\ifminion\else\footnotesize\fi]
+\documentclass{scrartcl}
+\usepackage[ansinew]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}   % Neue Rechtschreibung
+\usepackage{amsmath}          % Verbesserter Mathesatz
+
+\begin{document}              % Hier geht der Text los
+
+\begin{align}        % Die wohl meistgenutzte Umgebung
+  \int_{a}^{b} x\,dx
+  & = \left.\frac{1}{2} x^2\right\vert_{a}^{b}\\
+  & = \frac{1}{2} b^2 - \frac{1}{2} a^2 \\
+  \intertext{mit $a=1$ und $b=3$ folgt:}
+  \notag
+  & = \frac{1}{2} \left(3^2 - 1^2\right)\\
+  & = 4
+\end{align}
+
+\end{document}                 % Und hier hört er auf
+\end{lstlisting}
+%
+\newcounter{bspcnt}               % Damit die Ausgabe stimmt.
+\setcounter{bspcnt}{\theequation}
+\setcounter{equation}{0}
+%
+Dies erzeugt folgende Ausgabe:
+\begin{align}        % Die wohl meistgenutzte Umgebung
+  \int_{a}^{b} x\,dx &= \left.\frac{1}{2} x^2\right\vert_{a}^{b}\\
+  & = \frac{1}{2} b^2 - \frac{1}{2} a^2 \\
+  \intertext{mit $a=1$ und $b=3$ folgt:}
+  \notag
+  & = \frac{1}{2} \left(3^2 - 1^2\right)\\
+  & = 4
+\end{align}
+\setcounter{equation}{\thebspcnt}%
+Die Zeilen~9 und 17 starten bzw. beenden die
+\lstinline{align}"=Umgebung.  Material innerhalb dieser Umgebung wird
+standardmäßig zentriert und mit einer Gleichungsnummer pro Zeile
+ausgegeben.  Die Ausrichtung wird an Hand der \lstinline{&}s -- ähnlich
+wie bei Tabellen -- gemacht.  Zeile~11 enthält nun etwas neues, nämlich:
+\lstinline{\left. [...] \right\vert}.
+
+Diese beiden Befehle weisen \LaTeX\ an, die begrenzenden Symbole
+(Klammern usw.) in der Höhe dem Inhalt anzupassen.  Da wir hier
+allerdings keine linke Begrenzung haben, wird hier als "`Dummy"' der
+\lstinline{.} verwendet.  In  Zeile~15 sieht man das ganze nochmal mit
+einem Klammernpaar.
+
+Der nächste neue Befehl ist \lstinline+\intertext{[...]}+, welcher es
+uns erlaubt, innerhalb von mathematischen Umgebungen erklärenden Text
+einzufügen ohne die Ausrichtung zu zerstören.
+
+Das \lstinline{\notag} in Zeile~14 weist \LaTeX\ an die Numerierung in
+der \emph{folgenden} Zeile zu unterdrücken.  Dies ist zum Beispiel für
+Umformungen nützlich, die den Rechenweg verdeutlichen sollen.
+
+
+\subsection{Abschließend}
+\label{sec:abschlie3end}
+
+Der obige Abschnitt soll nur einen \emph{kleinen} Überblick über die
+Möglichkeiten von \LaTeX\ vermitteln.  Eine komplette Einführung in den
+Mathematiksatz würde den Rahmen dieses Tutoriums sprengen.
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "latex-tutorium"
+%%% End: 

@@ -1,0 +1,38 @@
+%       $Id: manifest.txt,v 1.3 2004/01/15 21:55:45 bronger Exp $    
+%
+%     manifest.tex -- Part of the LaTeX Tutorium
+%     Copyright 2004 Project Members of
+%                    http://sourceforge.net/projects/latex-tutorium/
+%                    
+%
+%   This program is free software; you can redistribute it and/or
+%   modify it under the terms of the Artistic License 2.0 as published
+%   by Larry Wall.  You should have received a copy of the Artistic
+%   License 2.0 along with this program in the file COPYING; if not,
+%   you can get it at
+%     http://dev.perl.org/rfc/346.html
+%   or contact the current maintainer of tbook.
+%
+%   This program is distributed in the hope that it will be useful, but
+%   WITHOUT ANY WARRANTY; without even the implied warranty of
+%   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%   Artistic License 2.0 for more details.
+%
+%   This file may only be distributed together with a copy of the LaTeX
+%   Turorium.
+%
+%   The LaTeX Tutorium consists of all files listed in manifest.txt.
+
+
+The project LaTeX-Tutorium, hosted on
+<http://sourceforge.net/projects/latex-tutorium>, consists of the following
+files:
+
+acrobat.tex          formeln.tex            literatur.tex
+beispiele.tex        fortgeschrittenes.tex  literaturverzeichnis.tex
+einfuehrung.tex      gifs-etc.tex           tabellen.tex
+erstes-dokument.tex  grafiken.tex           yap.tex
+fehler.tex           installation.tex       manifest.txt
+formatierung.tex     latex-tutorium.tex     COPYING
+gliederung.tex       tabelle1.eps           tabelle1.png
+tabelle2.eps         tabelle2.png

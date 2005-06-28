@@ -1,0 +1,144 @@
+%       $Id: installation.tex,v 1.17 2005/06/28 18:30:35 bronger Exp $    
+%
+%     installation.tex -- Part of the LaTeX Tutorium
+%     Copyright 2004 Project Members of
+%                    http://sourceforge.net/projects/latex-tutorium/
+%                    
+%
+%   This program is free software; you can redistribute it and/or
+%   modify it under the terms of the Artistic License 2.0 as published
+%   by Larry Wall.  You should have received a copy of the Artistic
+%   License 2.0 along with this program in the file COPYING; if not,
+%   you can get it at
+%     http://dev.perl.org/rfc/346.html
+%   or contact the current maintainers of the LaTeX Tutorium.
+%
+%   This program is distributed in the hope that it will be useful, but
+%   WITHOUT ANY WARRANTY; without even the implied warranty of
+%   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%   Artistic License 2.0 for more details.
+%
+%   This file may only be distributed together with a copy of the LaTeX
+%   Turorium.
+%
+%   The LaTeX Tutorium consists of all files listed in manifest.txt.
+
+
+\section{Die Installation unter Windows}
+\index{Installation}
+\index{Download}
+\index{CD@\CD}
+
+Es gibt mehrere Möglichkeiten, an \LaTeX{} heranzukommen:
+\begin{itemize}
+\item Man nutzt eine sehr gute Internet-Verbindung, um es sich herunterzuladen.
+  Modem kann man vergessen, mit \versalien{ISDN} ist etwas Geduld nötig.  Ab
+  \versalien{DSL} aufwärts geht es mehr oder minder flott.
+\item Man kauft sich eine \versalien{CD}\@.  Die gibt es für wenig Geld in
+  einigen Büchereien (z.\,B. Lehmanns), man kann sie aber auch online
+  bestellen.  Auf der \versalien{CD} ist u.\,U. nicht exakt das drauf, was hier
+  im Tutorium verwendet wird.
+\item Man kennt einen netten Menschen, der's hat.
+\end{itemize}
+
+\bigskip
+\noindent
+Von den folgenden vier Programmen müssen drei installiert sein, um mit \LaTeX{}
+arbeiten zu können.  FreePDF ist nicht unbedingt nötig.
+
+
+\begin{table}
+  \caption{Die Komponenten von \LaTeX{} zum Herunterladen.  Sie sollten in
+      genau dieser Reihenfolge installiert werden.}
+  \label{tab:Downloads}
+  \vspace{1ex}
+  \begin{tabular}{@{}llc@{}}
+    \toprule
+    Komponente       &  Homepage                 &  Größe          \\
+                     &                           &  (Megabytes)    \\
+    \midrule
+    Acrobat Reader   &  \url{www.adobe.de}       &  $18$           \\
+    MiK\TeX{}        &  \url{www.miktex.org}     &  $24$           \\
+    FreePDF (optional)
+                     &  \url{freepdfxp.de/fpxp.htm}&  $11$         \\
+    \TeXnicCenter{}  &  \url{www.toolscenter.org}  &  $4$          \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{Acrobat Reader}
+\index{Reader, Acrobat Reader}
+\index{Acrobat Reader}
+\index{Adobe}
+\index{PDF@\PDF}
+
+Mit ein bisschen Glück ist der Acrobat Reader bereits auf dem Computer
+vorhanden, weil es bei einigen anderen Programmen dabei ist.  Wenn nicht, muss
+man es sich bei `\url{www.adobe.de}' herunterladen, das sind knapp 18\,MB\@.
+
+Die Datei, die man dabei erhält, ruft man auf, und das ergibt dann alles
+weitere.  Die Installation selber dauert nur zwei Minuten.
+
+
+\subsection{\LaTeX}
+\index{MiKTeX@MiK\TeX}
+
+Natürlich braucht man \LaTeX{} selber.  Das bekommt man unter
+`\url{www.miktex.org}' in Form vom sogenannten "`MiK\TeX"'.  Man kann es
+entweder herunterladen (es sind allerdings mindestens 24~Megabytes) oder man
+bestellt sich dort "`MiK\TeX{} on \versalien{CD-R}"'\@.
+
+In beiden Fällen muss man das Setup-Programm aufrufen.  Wenn man von \CD{}
+installiert, sollte man mindestens die "`Large"'-Installation wählen, ansonsten
+reicht die "`Small"'-Variante.  Das ganze dauert je nach Fall zwischen fünf und
+fünfzehn Minuten.
+
+
+\subsection{FreePDF}
+\label{sec:FreePDF}
+\index{FreePDF}
+\index{PDF}
+\index{Ghostscript}
+\index{Postscript}
+
+Das Programm FreePDF ist nicht unbedingt für ein funktionierendes \LaTeX-System
+nötig.  Es erlaubt, aus jeder beliebigen Windows-Anwendung heraus \PDF-Dateien
+zu erzeugen, die man als Bilder in \LaTeX{}-Texte einbinden kann.  Wir
+empfehlen, es immer zu installieren, wenn man Abbildungen aus beispielsweise
+Corel Draw, PowerPoint, Excel oder Origin in seinen Texten verwenden möchte.
+
+Es ist kostenlos im Internet unter `\url{freepdfxp.de/fpxp.htm}' zu beziehen.
+Dort klickt man auf "`Download"' und muß \emph{zwei} Dateien herunterladen und
+installieren:
+\begin{enumerate}
+\item "`GhostScript"' ($10$~MByte) und
+\item "`FreePDF~XP"' selber ($0{,}5$~MByte).
+\end{enumerate}
+
+
+\subsection{Der Editor}
+\index{Editor}
+\index{TeXnicCenter@\TeXnicCenter}
+\index{ToolsCenter}
+
+Für den Benutzer ist der wichtigste Teil von \LaTeX{} der \emph{Editor}.  Im
+Editor gibt man seinen Text ein, schaut ihn sich in der Schnellvorschau an und
+druckt ihn aus.  In diesem Tutorium verwenden wir einen Editor namens
+\TeXnicCenter.  Es gibt Alternativen, aber der \TeXnicCenter{} ist leicht zu
+handhaben und bietet alles, was man braucht.  Seine Webseite ist
+`\url{www.toolscenter.org}'.
+
+Man bekommt ihn direkt aus dem Internet unter
+\begin{quote}
+  \url{http://www.texniccenter.org/front_content.php?idcat=50}
+\end{quote}
+Man muss dort die oberste Datei auswählen (auf "`SourceForge.net"' klicken,
+$5{,}5$\,MByte) und auf dem eigenen Rechner starten.  Während der Installation
+bestätigt man alle Vorgaben.  \textebf{Achtung:} Der \TeXnicCenter{} sollte
+stets als allerletztes installiert werden!
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "latex-tutorium"
+%%% End: 

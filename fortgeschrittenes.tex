@@ -1,0 +1,131 @@
+%       $Id: fortgeschrittenes.tex,v 1.11 2005/06/28 18:30:35 bronger Exp $    
+%
+%     fortgeschrittenes.tex -- Part of the LaTeX Tutorium
+%     Copyright 2004 Project Members of
+%                    http://sourceforge.net/projects/latex-tutorium/
+%                    
+%
+%   This program is free software; you can redistribute it and/or
+%   modify it under the terms of the Artistic License 2.0 as published
+%   by Larry Wall.  You should have received a copy of the Artistic
+%   License 2.0 along with this program in the file COPYING; if not,
+%   you can get it at
+%     http://dev.perl.org/rfc/346.html
+%   or contact the current maintainers of the LaTeX Tutorium.
+%
+%   This program is distributed in the hope that it will be useful, but
+%   WITHOUT ANY WARRANTY; without even the implied warranty of
+%   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%   Artistic License 2.0 for more details.
+%
+%   This file may only be distributed together with a copy of the LaTeX
+%   Turorium.
+%
+%   The LaTeX Tutorium consists of all files listed in manifest.txt.
+
+
+\section{Fortgeschrittenes Layout}
+
+\minisec{Fußnoten}
+
+Fußnoten werden mit \Alt+\Ctrl+\keystroke F erzeugt.  Diese Tastenkombination
+fügt den Befehl
+\begin{lstlisting}
+\footnote{}
+\end{lstlisting}
+ein.  Zwischen die geschweiften Klammern schreibt man dann den Text, der zur
+Fußnote werden soll:\footnote{So wie hier}
+\begin{lstlisting}
+... werden soll:\footnote{So wie hier}
+\end{lstlisting}
+
+\minisec{Links ins Internet}
+
+Internet-Adressen schreibt man mit dem Befehl \lstinline{\url}, der vom Paket
+\Package{url} bereit gestellt wird (die Einbindung erklärt Abschnitt
+\vref{sec:pakete}).
+\begin{lstlisting}
+Die Homepage der RWTH Aachen ist
+\url{http://www.rwth-aachen.de}.
+\end{lstlisting}
+Im \PDF-Dokument sind diese Links natürlich anklickbar.
+
+
+\subsection{Seitenränder einstellen}
+
+\begin{table}
+  \caption{Optionen zum Einstellen der Seitenränder}
+  \label{tab:Seitenraender}
+  \vspace{1ex}
+  \centering
+  \begin{tabular}{@{}ll@{}}
+    \toprule
+    Kürzel  &  Beschreibung \\
+    \midrule
+    a$5$paper      &  Papierformat auf A$5$ einstellen \\
+    left=$X$cm     &  linken Rand auf $X$\,cm einstellen \\
+    right=$X$cm    &  rechten Rand auf $X$\,cm einstellen \\
+    top=$X$cm      &  oberen Rand auf $X$\,cm einstellen \\
+    bottom=$X$cm   &  unteren Rand auf $X$\,cm einstellen \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Seitenränder werden in \LaTeX{} am besten mit dem Befehl
+\begin{lstlisting}
+\usepackage[...]{geometry}
+\end{lstlisting}
+eingestellt.  Dieser Befehl muss irgendwo in der Präambel vor dem
+\lstinline|\begin{document}| kommen.  Zwischen die eckigen Klammern schreibt
+  man dann, wie man die Seitenränder gerne hätte, zum Beispiel:
+\begin{lstlisting}
+\usepackage[a5paper,
+  left=1.9cm, right=2.1cm,
+  top=1.2cm, bottom=2.3cm]{geometry}
+\end{lstlisting}
+Das stellt auf \versalien{DIN}\,A$5$-Papier ein, und setzt die vier Ränder auf
+die angegebenen Werte in Zenimentern.  Die Tabelle~\vref{tab:Seitenraender}
+listet die wichtigsten Optionen für die Seiten-Einstellung auf.  (Es gibt
+allerdings noch mehr, z.\,B. für Kopf- und Fußzeilen.)
+
+
+\subsection{Andere Sprachen}
+
+\begin{table}
+  \caption{Beispiele für Sprachen bei \LaTeX{}}
+  \label{tab:Sprachen}
+  \vspace{1ex}
+  \centering
+  \begin{tabular}{@{}ll@{}}
+    \toprule
+    english             &  amerikanisches Englisch \emph{(Voreinstellung)}  \\
+    UKenglish           &  britisches Englisch                              \\
+    german              &  Deutsch, Alte Rechtschreibung                    \\
+    ngerman             &  Deutsch, Neue Rechtschreibung                    \\
+    french              &  Französisch                                      \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Wenn man nichts anderes sagt, geht \LaTeX{} davon aus, dass man einen Text auf
+Englisch schreibt.  Werfen wir nochmal einen Blick auf das Beispiel auf
+Seite~\pageref{lst:ngerman}, und zwar auf die Zeile~\ref{lst:ngerman}:
+\begin{lstlisting}
+\usepackage[ngerman]{babel}
+\end{lstlisting}
+Diese Zeile stellt die Sprache auf "`Deutsch -- Neue Rechtschreibung"' ein.
+Falls man statt "`ngerman"' einfach nur "`german"' schreibt, werden alte
+Rechtschreibregeln angewandt.  Tabelle~\vref{tab:Sprachen} listet ein paar
+Sprachkürzel auf, die man zwischen die eckigen Klammern schreiben kann.  Aber
+es gibt ebenso "`italian"', "`dutch"', "`spanish"' und noch viele weitere, auch
+für nicht-lateinische Schriften.
+
+Übrigens hat diese Einstellung nur Auswirkungen auf den \emph{Druck} des
+Textes, insbesondere auf die korrekte Silbentrennung.  Die
+\emph{Rechtschreibkontrolle} ist eine davon unabhängige Funktion.
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "latex-tutorium"
+%%% End: 

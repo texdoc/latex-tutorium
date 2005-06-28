@@ -1,0 +1,68 @@
+%       $Id: germhyph.sty,v 1.4 2004/05/21 20:50:02 bronger Exp $    
+%
+%     germhyph -- Part of the LaTeX Tutorium
+%     Copyright 2004 Torsten Bronger
+%                    <bronger@users.sourceforge.net>
+%                    
+%
+%   This program is free software; you can redistribute it and/or
+%   modify it under the terms of the Artistic License 2.0 as published
+%   by Larry Wall.  You should have received a copy of the Artistic
+%   License 2.0 along with this program in the file COPYING; if not,
+%   you can get it at
+%     http://dev.perl.org/rfc/346.html
+%   or contact the current maintainer of tbook.
+%
+%   This program is distributed in the hope that it will be useful, but
+%   WITHOUT ANY WARRANTY; without even the implied warranty of
+%   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%   Artistic License 2.0 for more details.
+%
+%   This file may only be distributed together with a copy of the LaTeX
+%   Turorium.
+%
+%   The LaTeX Tutorium consists of all files listed in manifest.txt.
+
+
+\NeedsTeXFormat{LaTeX2e}[1994/12/01]
+\ProvidesPackage{germhyph}[2001/07/21 v1.0 German Hyphenation Extensions (TBr)]
+
+\ifx\def@dqmacro\undefined\else
+   \def\grmn@dqdisc#1#2{\penalty\@M
+     \ifnum\grmn@dqwarninglevel>\@ne \grmn@dq@warning{#1}\fi
+     \discretionary{#2\char\hyphenchar\font}{}{#1}\allowhyphens}
+   \def\ck{\penalty\@M\discretionary{k\char\hyphenchar\font}{}{c}k\allowhyphens}
+   \def@dqmacro{|}{\penalty\@M\discretionary{\char\hyphenchar\font}{}{\kern.03em}%
+                   \allowhyphens}{}
+   \def\grmn@dqinsertff{%
+     \if f\grmn@dqnextff
+       \expandafter\grmn@dqfirst\else\expandafter\grmn@dqsecond\fi
+     {\relax\discretionary{ff\char\hyphenchar\font}{f}{ff}\allowhyphens}{f\grmn@dqnext}}
+\fi
+\let\oldhyphen=\-
+\def\-{\discretionary {\char\hyphenchar\font}{}{}}
+
+
+%Ja, das mit dem 'ck' war in der Tat so gedacht, danke! Mit folgendem
+%sieht es jetzt ordentlich aus.
+
+%\def\bh{\penalty\@M\discretionary{-\kern.005em}{}{}\allowhyphens}
+
+\endinput
+%Ohne es ausprobiert zu haben: Die Zeilen
+%\def@dqmacro{=}{\penalty\@M-\hskip\z@skip}%
+%               {\penalty\@M-\hskip\z@skip}
+%sehen mir ganz so aus, als wollten sie in
+\def@dqmacro{=}{\penalty\@M\discretionary{\char\hyphenchar\font}{}{-}\allowhyphens}%
+               {\penalty\@M\discretionary{\char\hyphenchar\font}{}{-}\allowhyphens}
+\def@dqmacro{-}{\penalty\@M\discretionary{\char\hyphenchar\font}{}{}\allowhyphens}%
+               {\penalty\@M\discretionary{\char\hyphenchar\font}{}{}\allowhyphens}
+%umdefiniert werden.
+
+
+
+%\def@dqmacro{=}{\penalty\@M\discretionary{}{}{-\kern.05em}\hskip\z@skip}%
+%               {\penalty\@M\discretionary{}{}{-\kern.05em}\hskip\z@skip}
+
+
+\endinput

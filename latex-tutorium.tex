@@ -1,0 +1,233 @@
+\documentclass[pointlessnumbers,DIV12,a5paper,twoside,bibtotocnumbered]{scrartcl}
+
+%       $Id: latex-tutorium.tex,v 1.30 2005/06/28 14:20:34 bronger Exp $    
+%
+%     latex-tutorium.tex -- Part of the LaTeX Tutorium
+%     Copyright 2004 Torsten Bronger <bronger@users.sourceforge.net>,
+%                    
+%
+%   This program is free software; you can redistribute it and/or
+%   modify it under the terms of the Artistic License 2.0 as published
+%   by Larry Wall.  You should have received a copy of the Artistic
+%   License 2.0 along with this program in the file COPYING; if not,
+%   you can get it at
+%     http://dev.perl.org/rfc/346.html
+%   or contact the current maintainers of the LaTeX Tutorium.
+%
+%   This program is distributed in the hope that it will be useful, but
+%   WITHOUT ANY WARRANTY; without even the implied warranty of
+%   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%   Artistic License 2.0 for more details.
+%
+%   This file may only be distributed together with a copy of the LaTeX
+%   Turorium.
+%
+%   The LaTeX Tutorium consists of all files listed in manifest.txt.
+
+\usepackage[nofoot,a5paper,
+lmargin=1.9cm,rmargin=2.1cm,
+tmargin=1.2cm,bmargin=2.3cm,
+headheight=0.52cm,
+headsep=0.5cm,includehead]{geometry}[2002/07/08]
+
+\usepackage{scrpage2}
+\pagestyle{scrheadings}
+\clearscrheadfoot
+\makeatletter
+\@tempdima\textwidth
+\advance\@tempdima0.8cm
+\setheadwidth[0pt]{\@tempdima}
+\makeatother
+\cehead{\rightmark}
+\cohead{\leftmark}
+\rohead{\relax\hbox to 0.8cm{\hfill\pagemark}}
+\lehead{\hbox to 0.8cm{\pagemark\hfill}\relax}
+\automark[section]{section}
+\setheadsepline{0.4pt}
+
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx,mathptmx,courier,textcomp,booktabs,relsize,wrapfig,
+  keystroke,fixltx2e}
+\usepackage[scaled]{helvet}
+
+\usepackage{ngerman}
+\usepackage[sort&compress,numbers]{natbib}
+
+\newif\ifminion
+\IfFileExists{minioneu.sty}{\miniontrue}{\minionfalse}
+\ifminion
+  \usepackage{germhyph}
+  \usepackage{minioneu}
+  \usepackage{soul}
+  \capsselect{narrow}
+  \newcommand*{\versalien}[1]{{\smaller\hskip0pt\caps{#1}}}
+  \newcommand*{\textebf}[1]{{\fontseries{eb}\selectfont #1}}
+  \else
+  \newcommand*{\versalien}[1]{{\smaller#1}}
+  \newcommand*{\textebf}[1]{\textbf{#1}}
+  \fi
+
+\makeatletter
+\DeclareRobustCommand{\LaTeX}{L\kern-.26em%
+        {\sbox\z@ T%
+         \vbox to\ht\z@{\hbox{\check@mathfonts
+                              \fontsize\sf@size\z@
+                              \math@fontsfalse\selectfont
+                              A}%
+                        \vss}%
+        }%
+        \kern-.15em%
+        \TeX}
+\makeatother
+
+\renewcommand{\topfraction}{.9}
+\renewcommand{\bottomfraction}{.9}
+\renewcommand{\textfraction}{.1}
+\renewcommand{\dbltopfraction}{.9}
+
+\usepackage[german]{varioref}
+\usepackage{amsmath}
+\DeclareMathOperator{\Rect}{rect}
+
+\usepackage{listings,color}
+\lstset{language=[LaTeX]TeX,columns=[l]fullflexible,
+  basicstyle=\ttfamily,extendedchars=true,
+  numberstyle=\sffamily\scriptsize,keepspaces,keywords={includegraphics,toprule,
+    midrule,bottomrule,maketitle,tableofcontents,intertext,notag,
+    url}}%,backgroundcolor=\color[gray]{0.9}}
+
+\newcommand{\WYSIWYG}{\versalien{WYSIWYG}}
+\newcommand{\PDF}{\versalien{PDF}}
+\newcommand{\PNG}{\versalien{PNG}}
+\newcommand{\GIF}{\versalien{GIF}}
+\newcommand{\TIFF}{\versalien{TIFF}}
+\newcommand{\BMP}{\versalien{BMP}}
+\newcommand{\EPS}{\versalien{EPS}}
+\newcommand{\CD}{\versalien{CD}}
+\newcommand{\JPEG}{\versalien{JPEG}}
+
+\newcommand{\TeXnicCenter}{\TeX\-nic\-Cen\-ter}
+
+\newcommand*{\NZB}[1]{\marginline{\scriptsize\raggedright\hspace{0pt}#1\par}}
+
+\newcommand{\Package}[1]{\texttt{#1}}
+\newcommand{\Environment}[1]{\texttt{#1}}
+\newcommand{\Parameter}[1]{\textrm{\itshape <#1>}}
+\title{\vspace*{-2cm}Das \LaTeX-Tutorium}
+
+\author{Torsten Bronger\thanks{bronger@physik.rwth-aachen.de} \and Christian
+  Faulhammer \and Mark Trettin}
+
+\date{\today\vspace*{-1.3cm}}
+\sloppy
+
+\usepackage{url,fancybox,pifont}
+\urlstyle{sf}
+
+% \usepackage[activate]{pdfcprot}
+
+\ifpdfoutput{%
+  \usepackage{hyperref}
+  \hypersetup{%
+    pdfauthor={Torsten Bronger,Christian Faulhammer,Mark Trettin},%
+    pdftitle={Das LaTeX-Tutorium},%
+    pdfsubject={Einführung in LaTeX für Windows},%
+    pdfkeywords={LaTeX,Tutorium,Tutorial,TeXnicCenter,Einführung}
+  }
+}%
+
+\hyphenation{Text-ein-ga-be Zei-len-um-bruch Texte Home-page}
+
+\newdimen{\Hinweisbreite}
+\newenvironment{Hinweis}[1][\ding{46}]{\removelastskip\bigskip\noindent\fboxsep0.4cm
+  \Hinweisbreite\hsize\advance\Hinweisbreite-2\fboxsep\advance\Hinweisbreite-2\fboxrule
+  \shadowbox\bgroup\begin{minipage}{\Hinweisbreite}%
+    \hangindent=1cm\hangafter=-2\parindent0pt\parskip1.5ex
+    \leavevmode\hbox to 0pt{\hss\Huge\vtop to
+      0pt{\vskip-0.5ex\hbox to 0.9cm{\hfill#1\hfill}\vss}\hskip0.1cm}\ignorespaces}
+  {\par\end{minipage}\egroup\bigskip}
+
+\begin{document}
+
+% Allgemeine Richtlinien:
+%
+% Der Plan ist, von der alten Methode, LaTeX zu erläutern, wegzukommen.  Der
+% ganze historische Ballast wird sofort aufgegeben.  Das heißt z.B.:
+%
+%               Ja                                            Nein
+% --------------------------------------------------------------------------------------
+%  Editor in den Vordergund stellen     Das (La)TeX-Programm in den Vordergrund stellen
+%  Heutige "best common practice"       Darstellung veralteter Methoden und Pakete
+%  Allgemein bekannte Layout-Elemente   Feinheiten der Typographie, z.B. Ligaturen
+%  Plakative Darstellung                Hintergrundwissen
+%  Konzentration auf Windows            Besprechung aller Plattformen
+%  Klare Software-Liste                 Software-Liste mit etlichen Alternativen
+%  PDF                                  DVI/PS
+%  Times & Co.                          Computer Modern
+%  KOMA-Script                          Standard-Klassen
+%  inputenc, T1                         "u etc., OT1
+%  Babel                                german.sty
+%  Syntax-Highlighting                  Einfache Schreibmaschinenschrift
+%
+%
+% Die Hoffnung ist, dadurch einen maximal effektiven Einstieg zu ermöglichen.
+% Es ist eine \emph{Einführung} ("Tutorial") und kein Lehrbuch, das dem Anspruch
+% der Umfassendheit genügen will.
+%
+% Es soll aber ein in sich geschlossenes Büchlein darstellen.  Die typischen
+% Elemente eines Dokuments sollen abgedeckt werden.
+
+% Wenn man die folgende Zeile einkommentiert, wird eine ``Nullte'' Seite
+% ausgespuckt.  Der Grund dafür ist, daß man dann ein Postscript erzeugen kann
+% und mit
+%
+% pstops "2:0L(21cm,0cm)+1L(21cm,14.85cm)" latex-tutorium.ps out.ps
+%
+% eine A4-Version mit zwei (sich gegenüberliegenden!) Seiten auf einem Blatt
+% erhält.  Ich will aber nicht ausschließen, daß das auch einfacher geht.
+%
+%\thispagestyle{empty}~\clearpage\setcounter{page}{1}
+
+% Eine mit Blattschneider auf echtes A5 trimmbare Version bekommt man, wenn man
+% nichts weiter einkommentiert, ein Postscript erzeugt (Vorsicht! Wegen
+% mangelnder PNG-Unterstützung und fehlendem CP suboptimale Qualität!) und dann
+%
+% pstops "4:0L(21cm,0cm)+2L(21cm,14.85cm),3L(21cm,0cm)+1L(21cm,14.85cm)" \
+%     latex-tutorium.ps out.ps
+%
+% aufruft.
+
+\maketitle
+\tableofcontents
+\cleardoublepage
+\input{einfuehrung}
+
+\input{installation}
+
+\input{erstes-dokument}
+
+\input{gliederung}
+
+\input{formatierung}
+
+\input{grafiken}
+
+\input{tabellen}
+
+\input{fortgeschrittenes}
+
+% \input{beispiele}
+
+\input{literatur}
+
+
+%\section{Anhang}
+\cleardoublepage
+\appendix
+\input{freepdf}
+
+\input{formeln}
+
+\input{literaturverzeichnis}
+\end{document}

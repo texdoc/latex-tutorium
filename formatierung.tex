@@ -1,0 +1,200 @@
+%       $Id: formatierung.tex,v 1.19 2005/06/28 18:30:35 bronger Exp $    
+%
+%     formatierung.tex -- Part of the LaTeX Tutorium
+%     Copyright 2004 Project Members of
+%                    http://sourceforge.net/projects/latex-tutorium/
+%                    
+%
+%   This program is free software; you can redistribute it and/or
+%   modify it under the terms of the Artistic License 2.0 as published
+%   by Larry Wall.  You should have received a copy of the Artistic
+%   License 2.0 along with this program in the file COPYING; if not,
+%   you can get it at
+%     http://dev.perl.org/rfc/346.html
+%   or contact the current maintainers of the LaTeX Tutorium.
+%
+%   This program is distributed in the hope that it will be useful, but
+%   WITHOUT ANY WARRANTY; without even the implied warranty of
+%   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%   Artistic License 2.0 for more details.
+%
+%   This file may only be distributed together with a copy of the LaTeX
+%   Turorium.
+%
+%   The LaTeX Tutorium consists of all files listed in manifest.txt.
+
+
+\section{Formatierung}
+
+\subsection{Fett, kursiv etc}
+
+\begin{table}[htbp]
+  \caption{Einige Möglichkeiten der Textformatierung}
+  \label{tab:Auszeichnungen}
+  \vspace{1ex}
+  \centering
+  \begin{tabular}{@{}lcc@{}}
+    \toprule
+    Formatierung              &  Tastenkürzel        &  Beispiel                   \\
+    \midrule
+    \emph{kursiv}             &  \Ctrl+\keystroke E  &  \lstinline|\emph{Wort}|    \\
+    \textbf{fett}             &                      &  \lstinline|\textbf{Wort}|  \\
+    \textsc{Kapitälchen}      &                      &  \lstinline|\textsc{Wort}|  \\
+    \textsf{serifenlos}       &                      &  \lstinline|\textsf{Wort}|  \\
+    \texttt{Schreibmaschine}  &                      &  \lstinline|\texttt{Wort}|  \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Wenn man ein Wort oder einen Satz betonen möchte, druckt man ihn am besten
+\emph{kursiv}.  Das geht mit \Ctrl+\mbox{\keystroke E,} welches den Befehl
+\lstinline{\emph} (engl.~\emph{emphasize}--\emph{betonen}) einfügt:
+\begin{lstlisting}
+... druckt man ihn am besten \emph{kursiv}.
+\end{lstlisting}
+In den allermeisten Texten kommt man mit Kursivdruck aus.  Trotzdem sind in
+Tabelle~\vref{tab:Auszeichnungen} noch weitere Möglichkeiten aufgelistet.  Man
+kann sie auch kombinieren:
+\begin{lstlisting}
+\textbf{\emph{fett-kursiv}}
+\end{lstlisting}
+
+
+\begin{table}[t]
+  \caption{Einige Schriftarten-Befehle.}
+  \label{tab:Schriftarten}
+  \vspace{1ex}
+  \newcommand{\tone}{\fontencoding{OT1}}
+  \centering\small
+  \begin{tabular}{@{}lll@{}}
+    \toprule
+    Befehl & Schriftart & wirkt auf\\
+    \midrule
+    \verb|\usepackage{mathptmx}| & \fontfamily{ptm}\selectfont Times New Roman & Normaltext \& Formeln \\
+    \verb|\usepackage{mathpazo}| & \fontfamily{ppl}\selectfont Palatino        & Normaltext \& Formeln \\
+    \verb|\usepackage{courier}|  & \fontfamily{pcr}\selectfont Courier         & Text in Schreib-\\
+                                 &                 & \quad maschinenschrift \\
+    \multicolumn{2}{@{}l}{\texttt{\textbackslash usepackage[scaled]\char'173 helvet\char'175}} & \\
+    & \fontfamily{phv}\selectfont Helvetica & Serifenloser Text      \\
+    \verb|\usepackage{bookman}|  & \fontfamily{pbk}\selectfont Bookman         & Normaltext             \\
+    \verb|\usepackage{newcent}|  & \fontfamily{pnc}\selectfont New Century     & Normaltext             \\
+                                 & \quad\fontfamily{pnc}\selectfont Schoolbook&                        \\
+    \verb|\usepackage{avant}|    & \fontfamily{pag}\selectfont Avant Garde     & serifenlosen Text      \\
+    \verb|\usepackage{charter}|  & \fontfamily{bch}\selectfont Charter         & Normaltext             \\
+    \verb|\usepackage{chancery}| & \fontfamily{pzc}\selectfont Zapf Chancery   & Normaltext             \\
+    \emph{(Voreinstellung)}      & \fontfamily{cmr}\tone\selectfont Computer Modern & Normaltext \& Formeln  \\
+    \emph{(Voreinstellung)}      & \fontfamily{cmss}\tone\selectfont CM Sans Serif  & serifenlosen Text      \\
+    \emph{(Voreinstellung)}      & \fontfamily{cmtt}\tone\selectfont CM Typewriter  & Text in Schreib-       \\
+                                 &                 & \quad maschinenschrift \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{Schriftarten}
+
+Es ist möglich, nahezu jede beliebige Schriftart, die man besitzt, mit \LaTeX{}
+zu benutzen.  Da \LaTeX{} sehr viele Informationen über Schriftarten benötigt,
+ist das aber viel Arbeit.  Glücklicherweise haben sich bereits andere diese
+Mühe gemacht, zumindest für die interessanten Schriftarten.
+
+Die Beispiele in diesem Tutorium werden in "`Times New Roman"' gedruckt, die
+Schriftart, die meist mit Word benutzt wird.  Wenn man sich nochmal das
+Muster-Dokument auf Seite~\pageref{Minimaldokument} anschaut, sieht man dort in
+den Zeilen~\ref{lst:mathptmx-courier} und~\ref{lst:helvet}
+\begin{lstlisting}
+\usepackage{mathptmx,courier}
+\usepackage[scaled]{helvet}
+\end{lstlisting}
+Diese kryptischen Befehle stellen auf Times (für normaler Text \& Formeln),
+Courier (für Schreibmaschinen-Schrift) und Helvetica (für serifenlos).
+
+Will man andere Schriftarten haben, muss man diese Zeilen löschen und einen
+oder mehrere der in Tabelle~\vref{tab:Schriftarten} genannten Schriftartbefehle
+an dieser Stelle einfügen.
+
+
+\subsection{Besondere Textsymbole, Trennungen und Leerräume}
+\label{sec:sonderzeichen}
+
+Einige Zeichen haben in \LaTeX{} eine besondere Bedeutung.  Wir hatten
+beispielsweise schon gesehen, dass das Prozent-Zeichen bewirkt, dass der Rest
+der Zeile ignoriert wird.  Was aber, wenn man wirklich ein Prozent-Zeichen
+eingeben möchte?
+
+In diesem Fall muss man einfach einen Backslash~``\verb|\|'' davorstellen.  Man
+kann also schreiben
+\begin{lstlisting}
+Die SPD kam auf 33,3\%.
+\end{lstlisting}
+Das gilt ebenso für die Zeichen \&, \# und~\$.
+
+Zwei Bindestriche ``\verb|--|'' fügen einen Gedankenstrich ein -- den man auch
+für von-bis-Ausdrücke verwenden kann: Von 14--15~Uhr.  Achtung, das ist kein
+Bindestrich!  Der ist weiterhin bloß ein einzelnes~``\verb|-|''.
+
+Die "`Gänsefüßchen"' müssen in \LaTeX{} etwas seltsam eingegeben werden:
+\begin{lstlisting}
+Ein sogenannter "`Roter Riese"' ist ein
+Stern, der ...
+\end{lstlisting}
+allerdings erledigt das der Editor bereits automatisch.
+
+\begin{table}
+  \caption{Besondere Zeichen in \LaTeX{}}
+  \label{tab:Sonderzeichen}
+  \vspace{1ex}
+  \centering
+  \begin{tabular}{@{}lcl@{}}
+    \toprule
+    \LaTeX-Befehl  &  Aussehen  &  Beschreibung \\
+    \midrule
+    \verb|\&|, \verb|\$|, \verb|\%|, \verb|\#| & \&, \$, \%, \# & \\
+    \verb|\S{}|  & \S{}  &  Paragraphen-Zeichen \\
+    \verb|--|  &  --  &  Gedankenstrich, von--bis-Strich \\
+    \verb|\dots{}|  &  \dots  &  Auslassungspunkte \\
+    \verb|"`|\dots\verb|"'|  &  "`\dots"'  &  Gänsefüßchen \\
+    \verb|~|   &      &  Leerschritt, Zeilenumbruch verboten \\
+    \verb|\,|   &     &  halber Leerschritt, Zeilenumbruch \\
+                &          &  \quad verboten \\
+    \verb|"~|  &  -   &  Bindestrich, Zeilenumbruch verboten \\
+%    \verb|""|  &  (\emph{nichts})    &  Zeilenumbruch erlaubt, keinen \\
+%               &                     &  \quad Bindestrich einfügen \\
+    \verb|\LaTeX{}|  &  \LaTeX{}  &  offizielles \LaTeX-Logo \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+Ach ja, last but not least: "`\LaTeX{}"' schreibt man "`\lstinline|\LaTeX{}|"'.
+
+\bigskip\noindent
+Manchmal will man die Silbentrennung oder den Zeilenumbruch beeinflussen.  Da
+bietet \LaTeX{} einfache und praktische Möglichkeiten.  Eine Tilde ``\verb|~|''
+beispielsweise erzeugt ein Leerzeichen, an dem nie ein Zeilenumbruch
+stattfindet:
+\begin{lstlisting}
+Die Prüfung leitet Prof.~Dr.~Obermeyer.
+\end{lstlisting}
+Dasselbe verursacht ein ``\verb|\,|'', allerdings ist das nur ein halbes
+Leerzeichen:
+\begin{lstlisting}
+Er war 175\,cm groß.
+\end{lstlisting}
+Wenn ich einen Bindestrich brauche, an dem nie die Zeile umbrochen werden darf,
+gebe ich ihn mit \verb|"~| ein:
+\begin{lstlisting}
+Seine Aussage im O"~Ton war, dass ...
+Das gibt Abzüge in der B"~Note.
+\end{lstlisting}
+So kann man garantieren, dass solche Fälle immer richtig getrennt werden.
+Tabelle~\vref{tab:Sonderzeichen} enthält eine Übersicht über diese Befehle.
+
+Falls einzelne Wörter falsch getrennt werden sollten, führt man einfach alle
+möglichen Trennungen des Wortes in der Präambel mit Hilfe des Befehls
+\lstinline|\hyphenation| auf:
+\begin{lstlisting}
+\hyphenation{Text-ein-ga-be Zei-len-um-bruch}
+\end{lstlisting}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "latex-tutorium"
+%%% End: 

@@ -1,0 +1,278 @@
+%       $Id: erstes-dokument.tex,v 1.25 2005/06/28 14:20:33 bronger Exp $    
+%
+%     erstes-dokument.tex -- Part of the LaTeX Tutorium
+%     Copyright 2004 Project Members of
+%                    http://sourceforge.net/projects/latex-tutorium/
+%                    
+%
+%   This program is free software; you can redistribute it and/or
+%   modify it under the terms of the Artistic License 2.0 as published
+%   by Larry Wall.  You should have received a copy of the Artistic
+%   License 2.0 along with this program in the file COPYING; if not,
+%   you can get it at
+%     http://dev.perl.org/rfc/346.html
+%   or contact the current maintainers of the LaTeX Tutorium.
+%
+%   This program is distributed in the hope that it will be useful, but
+%   WITHOUT ANY WARRANTY; without even the implied warranty of
+%   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%   Artistic License 2.0 for more details.
+%
+%   This file may only be distributed together with a copy of the LaTeX
+%   Turorium.
+%
+%   The LaTeX Tutorium consists of all files listed in manifest.txt.
+
+\section{Das erste Dokument}
+\subsection{Erste Schritte}
+\label{sec:ersteschritte}
+
+\TeXnicCenter{} bietet im Großen und Ganzen die gewohnte Oberfläche und
+Menüstruktur, die man unter Windows gewohnt ist. Das heißt, man kann Dateien
+speichern, öffnen, den Quelltext ausdrucken und vieles mehr.
+
+Fangen wir mal mit einem sehr einfachen \LaTeX-Dokument an.  Man startet also
+den \TeXnicCenter{} und gibt Folgendes ein:
+\begin{lstlisting}
+\documentclass{scrartcl}
+
+\begin{document}
+Dies ist mein erster Text.
+\end{document}
+\end{lstlisting}
+Dann speichert man das Dokument ab und drückt \keystroke{Strg}+\keystroke{F7}
+und~\mbox{\keystroke{F5}.}  Es öffnet sich ein Fenster, in dem man den Text so
+sehen kann, wie er auch später aus dem Drucker kommen wird.  In unserem Fall
+ist das nur der Text "`Dies ist mein erster Text"'.
+
+Aber was bedeutet das, was wir gerade getippt haben?  Die allererste Zeile
+lautet
+\begin{lstlisting}
+\documentclass{scrartcl}
+\end{lstlisting}
+und gibt in den geschweiften Klammern die \emph{Klasse} bzw.\ \emph{Art} des
+Dokumentes an.  Man hat die Wahl zwischen Buch (\mbox{scrbook}), Artikel
+(\mbox{scrartcl}) und Brief (\mbox{scrlttr$2$}).  Die Kürzel sind aus
+historischen Gründen zugegebenermaßen seltsam, aber das soll uns nicht stören.
+"`Artikel"' und "`Buch"' sollte man nicht zu wörtlich nehmen.  Die meisten
+\LaTeX-Benutzer nehmen "`Buch"' für alles, was aus Kapiteln besteht, und
+"`Artikel"' für den Rest.
+
+\begin{Hinweis}
+  In der ersten Zeile einer \LaTeX-Datei muss man sich für die \emph{Klasse}
+  seines Textes entscheiden.  Soll es ein Buch werden, schreibt man
+  \lstinline|\documentclass{scrbook}|, \mbox{ansonsten}
+  \lstinline|\documentclass{scrartcl}|.
+\end{Hinweis}
+
+\lstinline{\documentclass} ist auch das erste Beispiel für etwas sehr wichtiges
+in \LaTeX: den \LaTeX-Befehl.
+
+\subsubsection{Die Anatomie eines \LaTeX-Befehls}
+\label{sec:anatomie}
+
+Wie schon erwähnt, sieht man bei \LaTeX{} die Formatierung des Textes nicht
+direkt wie in Word, sondern in Form von \emph{Befehlen}, die zwischen dem Text
+stehen.  Der Editor färbt sie zur besseren Übersicht blau ein, und hier im
+Turorium schreiben wir sie im Fettdruck.
+
+Unser kleines \LaTeX-Beispiel begann ja mit
+\begin{lstlisting}
+\documentclass{scrartcl}
+\end{lstlisting}
+Das ist ein typischer \LaTeX-Befehl.  Wie schon gesagt, bedeutet er, dass wir
+einen Text ohne Kapitel schreiben wollen.  Ein \LaTeX-Befehl hat immer den
+folgenden Aufbau:
+\begin{enumerate}
+\item Er beginnt mit einem umgekehrten Schrägstrich~"`\verb|\|"', einem
+  sogenannten "`Backslash"'.
+\item Dann folgt der englische Name des Befehls, z.\,B. "`documentclass"' für
+  "`Die Klasse des Dokumentes"'.
+\item Als letztes kommen zusätzliche Angaben, die sogenannten \emph{Parameter}.
+  Sie stehen jeweils in geschweiften Klammern \lstinline|{...}|.  Je nach
+  Befehl können es keiner, einer, oder mehrere Parameter sein.
+  
+  Meistens ist es aber genau einer, wie bei unserem Beispiel-Befehl, nämlich
+  eben das Kürzel "`scrartcl"'.
+\end{enumerate}
+
+
+\bigskip
+Gut, soviel erstmal zu Befehlen.  Kommen wir nochmal zurück auf den
+Beispieltext:
+\begin{lstlisting}
+\documentclass{scrartcl}
+
+\begin{document}
+Dies ist mein erster Text.
+\end{document}
+\end{lstlisting}
+Da sind anscheinend noch zwei andere Befehle, \lstinline{\begin} und
+  \lstinline{\end}.  In Wahrheit sind \lstinline{\begin} und \lstinline{\end}
+aber ganz besondere Befehle, die eine \emph{Umgebung} umschließen.  Umgebungen
+sind das zweitwichtigste in \LaTeX:
+
+\subsubsection{Umgebungen}
+
+Umgebungen klammern einen Bereich des Textes ein.  Unser Beispiel-Dokument von
+vorhin enthält genau eine Umgebung, und es ist sogar die wichtigste, die immer
+genau einmal vorkommen muss:
+\begin{lstlisting}
+\begin{document}
+ ...
+\end{document}
+\end{lstlisting}
+Die \lstinline|document|-Umgebung enthält den ganzen Text des Dokuments.  Jede
+Umgebung beginnt mit
+\begin{lstlisting}[escapeinside=`']
+\begin{`\Parameter{Umgebungsname}'}
+\end{lstlisting}
+und endet mit
+\begin{lstlisting}[escapeinside=`']
+\end{`\Parameter{Umgebungsname}'}
+\end{lstlisting}
+
+Alles, was zwischen diesen Befehlen steht, erhält dieselben Eigenschaften und
+wird als ein logisch zusammenhängender Teil behandelt.  Beispielsweise gibt es
+Umgebungen, die den Text kleiner oder zentriert drucken.  Wie wir später sehen
+werden, sind auch Aufzählungen und Tabellen Beispiele für Umgebungen.
+
+\begin{Hinweis}
+  Die wichtigste Umgebung ist \lstinline|\begin{document}|.  Mit ihr beginnt
+    der eigentliche Text, der mit \lstinline|\end{document}| endet.
+\end{Hinweis}
+
+
+\subsubsection{Pakete -- Lösungen für alle Probleme}
+\label{sec:pakete}
+
+\LaTeX{} ist modular aufgebaut.  Neben den \LaTeX-Grundfunktionen gibt es noch
+die \emph{Pakete}.  Pakete stellen in der Regel Zusatzfunktionen für bestimmte
+Aufgaben bereit.  Beispielsweise gibt es Pakete zum Schreiben eines
+Lebenslaufs.  Daneben gibt es aber auch Pakete, die bei jeder
+\LaTeX-Installation garantiert vorhanden sind, weil sie so wichtige Dinge wie
+Grafikeinbindung oder Textsprache bereitstellen.
+
+Wie kann man \LaTeX-Pakete in Anspruch nehmen?  Zuerst einmal muss man den
+Paketnamen für die entsprechende Aufgabe kennen und dann mit
+\begin{lstlisting}[escapeinside=`']
+\usepackage[`\Parameter{Optionen}']{`\Parameter{Paketname}'}
+\end{lstlisting}
+einfügen.  Die Optionen in eckigen Klammern sind nicht bei allen Paketen nötig.
+
+Wichtig ist, \emph{wo} man Pakete einfügt.  Vielleicht kam schon eben die Frage
+auf, warum diese \lstinline{document}-Umgebung nötig ist, wenn doch ohnehin
+scheinbar alles da hineinwandert.  Nun, nicht alles.  Alle Pakete müssen
+\emph{vor} der \lstinline{document}-Umgebung eingebunden werden.
+
+\begin{Hinweis}
+  Der Bereich, in dem man die Pakete einbindet, befindet sich zwischen
+  \lstinline|\documentclass{...}| und \lstinline|\begin{document}|.  Man nennt
+    diesen Bereich den \emph{Vorspann} oder die \emph{Präambel}.
+\end{Hinweis}
+  
+Abschließend, bevor wir das erste kompliziertere Dokument eingeben, sei hier
+noch einmal der Grundaufbau einer \LaTeX-Datei dargestellt:
+\begin{lstlisting}[escapeinside=`']
+\documentclass{`\Parameter{Dokumentklasse}'}
+
+\usepackage{...}  `\hspace{3em}\textrm{\textit{Präambel}}'
+\usepackage{...}
+
+\begin{document}
+Hier der Text ...
+\end{document}
+\end{lstlisting}
+
+
+\subsection{Die Muster-Datei}
+\label{Minimaldokument}
+
+Ein Mini-Beispiel haben wir nun hinter uns, aber wie im letzten Abschnitt schon
+angedeutet, kommt man ohne Zusatzpakete nicht sehr weit.  Bloß welche Pakete
+benötigt man für den Anfang, und wie sind sie einzubinden?  Um diese Aufgabe
+spürbar zu vereinfachen, wird nun ein Muster-Dokument vorgestellt, das man als
+Ausgangspunkt für alle eigenen Dokumente benutzen kann.
+
+Im Wesentlichen geht es um eine Muster-\emph{Präambel}.  Vorsicht: Die sieht
+zunächst einmal etwas erschreckend aus.  Das meiste kann man ruhig so
+hinnehmen.  Nur wenn es nötig ist, werden wir auf den folgenden Seiten auf die
+ein oder andere Zeile besonders eingehen.
+
+\begin{lstlisting}[numbers=left,basicstyle=\ttfamily\ifminion\else\footnotesize\fi,
+  escapeinside=`']
+\documentclass{scrartcl}       % keine Kapitel
+\usepackage[ansinew]{inputenc}   `\label{lst:start-pakete}'
+\usepackage[T1]{fontenc}
+\usepackage{graphicx,textcomp,booktabs,amsmath}
+\usepackage{mathptmx,courier}    `\label{lst:mathptmx-courier}'
+\usepackage[scaled]{helvet}      `\label{lst:helvet}'
+
+\usepackage[ngerman]{babel}    % Neue Rechtschreibung `\label{lst:ngerman}'
+
+\begin{document}               % Hier geht der Text los
+
+Hallo! Dies ist der erste Absatz dieses einfachen Textes.
+Ich muss jetzt hier ein wenig herumlabern, um ihn ein wenig
+länger zu bekommen, sonst kann man nachher nicht so schön
+sehen, wo der eine Absatz aufhört und wo der andere
+anfängt.
+
+Dies ist der zweite und letzte Absatz.
+
+\end{document}                 % Und hier hört er auf
+\end{lstlisting}
+
+\begin{figure}
+  \centering
+  \newdimen\erstesdokumentbreite\erstesdokumentbreite\hsize
+  \advance\erstesdokumentbreite-2\fboxsep
+  \advance\erstesdokumentbreite-2\fboxrule
+  \fbox{\includegraphics[width=\erstesdokumentbreite]{erstes-dokument}}
+  \caption{Das Druckergebnis des ersten Dokumentes.}
+  \label{fig:erstes-dokument}
+\end{figure}
+
+Zur Präambel zunächst nur Folgendes:
+
+Die Zeilen~\ref{lst:start-pakete}--\ref{lst:helvet} sagen \LaTeX{} unter
+anderem, dass wir Windows benutzen, und stellen die Schriftarten ein.
+
+In Zeile~\ref{lst:ngerman} stelle ich die Sprache ein, "`ngerman"' steht für
+"`deutsch --~neue Rechtschreibung"'.  Schließlich folgt der eigentliche Text,
+zwischen \lstinline|\begin{document}| und \lstinline|\end{document}|.
+
+Auch dieses Dokument kann man sich mit \keystroke{Strg}+\keystroke{F7}
+und~\keystroke{F5} mal anschauen.  Das Ergebnis sieht man in
+Abbildung~\vref{fig:erstes-dokument}.
+
+
+\subsection{Wichtige grundsätzliche \LaTeX-Regeln}
+
+\begin{itemize}
+\item Es spielt keine Rolle, ob man Wörter durch ein, zwei, oder wieviel
+  Leerschritte auch immer trennt.  Im Ausdruck fügt \LaTeX{} immer den
+  korrekten Zwischenraum ein.
+\item Absätze werden durch Leerzeilen voneinander getrennt.  Auch hier ist die
+  Anzahl unwichtig.
+\item Der Zeilenumbruch wird erst für den Ausdruck von \LaTeX{} berechnet.  Wie
+  man den Text im Editor auf die Zeilen aufteilt, ist also egal.
+\item Prozentzeichen~"`\verb|%|"' werden von \LaTeX{} nicht ausgedruckt, ebenso
+  wie alles, was hinter dem~"`\verb|%|"' in der Zeile steht.  Man kann so
+  Notizen einfügen.  (Ein richtiges Prozentzeichen muss man als "`\verb|\%|"'
+  eingeben.)
+\end{itemize}
+
+
+
+\input{yap}
+\input{acrobat}
+\input{fehler}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "latex-tutorium"
+%%% End: 
+
+% LocalWords:  Strg document numbers left basicstyle herumlabern fig dokument
+% LocalWords:  ngerman

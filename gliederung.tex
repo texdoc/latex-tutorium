@@ -1,0 +1,203 @@
+%       $Id: gliederung.tex,v 1.13 2005/06/28 18:30:35 bronger Exp $    
+%
+%     gliederung.tex -- Part of the LaTeX Tutorium
+%     Copyright 2004 Project Members of
+%                    http://sourceforge.net/projects/latex-tutorium/
+%                    
+%
+%   This program is free software; you can redistribute it and/or
+%   modify it under the terms of the Artistic License 2.0 as published
+%   by Larry Wall.  You should have received a copy of the Artistic
+%   License 2.0 along with this program in the file COPYING; if not,
+%   you can get it at
+%     http://dev.perl.org/rfc/346.html
+%   or contact the current maintainers of the LaTeX Tutorium.
+%
+%   This program is distributed in the hope that it will be useful, but
+%   WITHOUT ANY WARRANTY; without even the implied warranty of
+%   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%   Artistic License 2.0 for more details.
+%
+%   This file may only be distributed together with a copy of the LaTeX
+%   Turorium.
+%
+%   The LaTeX Tutorium consists of all files listed in manifest.txt.
+
+
+\section{Gliederung des Textes}
+
+\subsection{Titel und Autor}
+
+Wenn man einen Titel und/oder einen Autor für das Dokument angeben möchte, muss
+man das in Form von
+\begin{lstlisting}
+\title{Der Herr der Ringe}
+\author{J.R.R. Tolkien}
+\end{lstlisting}
+unmittelbar nach dem \lstinline|\begin{document}| tun.  Im Dokument gibt man
+mit \lstinline{\maketitle} an, wo man den Titel hinhaben möchte.  Meist ist das
+natürlich ganz vorne:
+\begin{lstlisting}
+\begin{document}
+\title{Der Herr der Ringe}
+\author{J.R.R. Tolkien}
+\maketitle
+...
+\end{lstlisting}
+
+
+\subsection{Kapitel, Abschnitte und das Inhaltsverzeichnis}
+
+Ein neues Kapitel oder ein neuer Abschnitt beginnt immer mit einer Überschrift.
+Dafür muss man einen der Befehle benutzen, die in
+Tabelle~\vref{tab:Gliederungs-Befehle} aufgelistet sind.  Man kann also
+beispielsweise schreiben:
+\begin{lstlisting}
+\section{Einführung}
+
+In diesem Artikel werde ich erklären, wie ...
+\end{lstlisting}
+
+\begin{table}
+  \caption{\LaTeX-Befehle, mit denen man Überschriften einfügt.}
+  \label{tab:Gliederungs-Befehle}
+  \vspace{1ex}
+  \centering
+  \begin{tabular}{@{}ll@{}}
+    \toprule
+    \verb|\chapter{|\emph{Überschrift}\verb|}|        &  Kapitel (nur in Büchern)  \\
+    \verb|\section{|\emph{Überschrift}\verb|}|        &  Abschnitte                \\
+    \verb|\subsection{|\emph{Überschrift}\verb|}|     &  Unterabschnitte           \\
+    \verb|\subsubsection{|\emph{Überschrift}\verb|}|  &  Unter-Unterabschnitte     \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{wrapfigure}{r}{5cm}
+  \includegraphics{ueberschriften}
+\end{wrapfigure}
+Man kann es sich aber auch etwas bequemer machen.  Mit \Alt+\Ctrl+\keystroke S
+wird ein Fenster geöffnet, in dem man wählen kann, was für eine Art von
+Überschrift man einfügen möchte, wie die Überschrift lauten soll und welche
+Marke man hier setzen möchte (siehe Abschnitt~\vref{sec:Querverweise}).
+
+Dort, wo man den Befehl \lstinline{\tableofcontents} einfügt, druckt \LaTeX{}
+ein Inhaltsverzeichnis.  Ein typischer Start für ein \LaTeX-Dokument ist daher
+\begin{lstlisting}
+\begin{document}
+\title{Der Herr der Ringe}
+\author{J.R.R. Tolkien}
+\maketitle
+\tableofcontents
+...
+\end{lstlisting}
+
+
+\subsection{Querverweise}
+\label{sec:Querverweise}
+
+Es wäre ziemlich dumm, direkt eine Nummer einzufügen, wenn man auf einen
+anderen Abschnitt, eine bestimmte Seite, eine Tabelle, Grafik oder ähnliches
+verweisen möchte.  Der Grund ist einfach, dass sich die Nummern sehr leicht
+ändern, wenn man den Text bearbeitet.
+
+In \LaTeX{} setzt man daher mit dem Befehl \lstinline{\label} sogenannte
+\emph{Marken} (engl.~"`labels"') an die Stellen, auf die man verweisen möchte
+(meist direkt dahinter).  Dabei vergibt man einen eindeutigen Namen für die
+Marke.
+
+Wie im vorangehenden Abschnitt schon beschrieben, kann man gleich bei der
+Eingabe einer Überschrift eine Marke setzen.  Es ist üblich, Marken für
+Überschriften mit "`sec:"'\ zu beginnen.  Mal angenommen, ich habe die folgende
+Überschrift:
+\begin{lstlisting}
+\section{Einführung}
+\label{sec:Einführung}
+\end{lstlisting}
+Dann kann ich an einer beliebigen Stelle im Dokument auf diese Überschrift mit
+\lstinline{\ref} und \lstinline{\pageref} verweisen:
+\begin{lstlisting}
+...  Siehe Abschnitt \ref{sec:Einführung} auf
+Seite \pageref{sec:Einführung}.  ...
+\end{lstlisting}
+\LaTeX{} ersetzt \lstinline|\ref{|\dots\lstinline|}| durch die
+Abschnitts-Nummer und \lstinline|\pageref{|\dots\lstinline|}| durch die
+Seitenzahl.
+
+\nopagebreak
+Genauso kann man auch auf Tabellen, Grafiken, Formeln oder beliebige Positionen
+im Text verweisen.
+
+
+\subsection{Listen und Aufzählungen}
+
+In \LaTeX{} werden Listen als Umgebungen eingegeben.  Es gibt drei Arten von
+Listen: Normale Listen (itemize), Aufzählungen (enumerate) und
+Begriffs-Erklärungen (description).
+
+\begingroup
+\newcommand{\mycolumnwidth}{}
+\newdimen\mycolumnwidth\mycolumnwidth\hsize\advance\mycolumnwidth-\parindent
+\mycolumnwidth0.5\mycolumnwidth
+\begin{tabular}{@{}p{\mycolumnwidth}@{}p{\mycolumnwidth}@{}}
+Normale Listen sehen so aus:
+\begin{itemize}
+\item Punkt Eins
+\item Punkt Zwei
+\item Punkt Drei
+\end{itemize}
+&
+und werden so eingegeben:
+%
+\begin{lstlisting}
+\begin{itemize}
+\item Punkt Eins
+\item Punkt Zwei
+\item Punkt Drei
+\end{itemize}
+\end{lstlisting}
+\end{tabular}
+\endgroup
+
+Mit einer Aufzählung ist Folgendes gemeint:
+\begin{enumerate}
+\item Punkt Eins
+\item Punkt Zwei
+\item Punkt Drei
+\end{enumerate}
+Das gibt man genauso wie Listen ein, nur schreibt man statt "`\verb|itemize|"'
+"`\verb|enumerate|"'.
+
+\medskip
+Schließlich kann man noch Begriffe in einer Liste erklären:
+\begin{description}
+\item[Asterix,] der Held dieser Abenteuer.  Ein listiger kleiner Krieger, voll
+  sprühender Intelligenz, dem alle gefährlichen Aufträge bedenkenlos anvertraut
+  werden.  \dots
+\item[Obelix] ist der dickste Freund von Asterix.  Seines Zeichens Lieferant
+  für Hinkelsteine, großer Liebhaber von Wildschweinen und \dots
+\item[Miraculix,] der ehrwürdige Druide des Dorfes, schneidet Misteln und braut
+  Zaubertränke.  \dots
+\end{description}
+%
+Dafür muss man die description-Umgebung benutzen und den zu erklärenden Begriff
+in eckigen Klammern hinter das \lstinline{\item} setzen:
+%
+\begin{lstlisting}[basicstyle=\ttfamily\ifminion\else\footnotesize\fi]
+\begin{description}
+\item[Asterix,] der Held dieser Abenteuer.  Ein listiger
+  kleiner Krieger, voll sprühender Intelligenz, dem alle
+  gefährlichen Aufträge bedenkenlos anvertraut werden.
+  \dots{}
+\item[Obelix] ist der dickste Freund von Asterix.  Seines
+  Zeichens Lieferant für Hinkelsteine, großer Liebhaber
+  von Wildschweinen und \dots{}
+...
+\end{description}
+\end{lstlisting}
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "latex-tutorium"
+%%% End: 

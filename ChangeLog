@@ -1,0 +1,358 @@
+2005-06-28  Torsten Bronger  <bronger@physik.rwth-aachen.de>
+
+	* formatierung.tex, fortgeschrittenes.tex, gliederung.tex, installation.tex:
+	Verbesserung der Tabellenformatierung.
+
+	* latex-tutorium.tex, yap.tex, erstes-dokument.tex, formatierung.tex, formeln.tex, fortgeschrittenes.tex, gliederung.tex, installation.tex, einfuehrung.tex:
+	Korrekturen eingearbeitet.
+
+2005-03-21  Torsten Bronger  <bronger@physik.rwth-aachen.de>
+
+	* erstes-dokument.tex, formatierung.tex, gliederung.tex, latex-tutorium.tex:
+	Verbesserungen von Markus Kohm eingearbeitet.
+
+2005-03-20  Torsten Bronger  <bronger@physik.rwth-aachen.de>
+
+	* soul.cfg: An neueste soul-Version angepa��t.
+
+	* installation.tex: NZB ��ber Ghostscript hineingesetzt.
+
+	* gifs-etc.tex, formatierung.tex: Kleine Verbesserung.
+
+2004-08-02  Torsten Bronger  <bronger@physik.rwth-aachen.de>
+
+	* grafiken.tex: Kleine Korrektur.
+
+	* latex-tutorium.bib: Kleine Korrekturen.
+
+2004-05-23  Torsten Bronger  <bronger@physik.rwth-aachen.de>
+
+	* latex-tutorium.tex: Autoren zu PDF-Metadaten hinzugefügt.
+
+	* erstes-dokument.tex: Grafik zu erstem Dokument hinzugefügt.
+
+	* erstes-dokument.pdf, erstes-dokument.eps: New file.
+
+	* einfuehrung.tex, erstes-dokument.tex, formatierung.tex, gifs-etc.tex, gliederung.tex, grafiken.tex, literatur.tex, tabellen.tex:
+	Kleine Korrekturen.
+
+2004-05-21  Torsten Bronger  <bronger@physik.rwth-aachen.de>
+
+	* latex-tutorium.bib:
+	\epsilon im \LaTeX2e-Logo aus dem Subskript auf die Grundlinie gesetzt.
+
+	* installation.tex, latex-tutorium.tex, formatierung.tex, germhyph.sty, grafiken.tex:
+	Keine Änderungen.
+
+	* gifs-etc.tex: Erste Fassung dieses Abschnittes steht.
+
+	* erstes-dokument.tex, gliederung.tex, installation.tex, einfuehrung.tex:
+	Vorschläge von Albrecht Mehl eingearbeitet.
+
+	* latex-tutorium.tex: Besseres LaTeX-Logo.
+
+	* latex-tutorium.tex:
+	Autoren und Datum hinzugefügt.  KOMA-Optionen angepaßt.  Text startet nun auf
+	der ersten freien ungeraden Seite.
+
+2004-05-20  Torsten Bronger  <bronger@physik.rwth-aachen.de>
+
+	* latex-tutorium.tex: \bigskips zur Hinweis-Umgebung hinzugefügt.
+
+	* erstes-dokument.tex: Zwei Hinweise hinzugefügt.
+
+	* latex-tutorium.tex: Hinweis-Umgebung verbessert.
+
+	* erstes-dokument.tex: Ersten \Hinweis eingefügt.
+
+	* latex-tutorium.tex: \Hinweis-Makro hinzugefügt.
+
+2004-05-18  Torsten Bronger  <bronger@physik.rwth-aachen.de>
+
+	* erstes-dokument.tex, gliederung.tex, installation.tex, yap.tex:
+	Einige kleinere Änderungen.
+
+2004-04-15  Torsten Bronger  <bronger@physik.rwth-aachen.de>
+
+	* fortgeschrittenes.tex, yap.tex: Kleine Verbesserungen.
+
+	* literatur.tex: Eine bessere Formulierung.
+
+	* formeln.tex: \LaTeX\ --> \LaTeX{}
+
+	* formatierung.tex: Kleine Verbesserungen.
+
+	* erstes-dokument.tex:
+	Einleitende Worte zum Muster-Dokument hinzugefügt.
+
+	* latex-tutorium.tex: Befehl \Parameter hinzugefügt.
+
+	* erstes-dokument.tex:
+	Viele Änderungen, u.a. ein Mini-Minimaldokument eingefügt.
+
+2004-04-12  Torsten Bronger  <bronger@physik.rwth-aachen.de>
+
+	* gifs-etc.tex: Absatz hinzugefügt; noch weit entfernt von fertig.
+
+	* einfuehrung.tex: Kleine Verbesserungen.
+
+	* installation.tex: Unbedeutende Änderungen.
+
+	* latex-tutorium.tex: Punkte hinter Abschnittsnummern entfernt.
+
+	* erstes-dokument.tex: Viele kleine Änderungen, nichts inhaltliches.
+
+	* soul.cfg: Neue Datei.
+
+2004-03-07  v-li  <v-li@wilson>
+
+	* yap.tex: erweitert
+
+	* literaturverzeichnis.tex: Gliederung an \\appendix angepasst
+
+	* latex-tutorium.tex:
+	Ueberschriften rausgezogen (war inkonsistent), \\inputs verlagert, \\appendix statt \\section{Anhang}, Befehle für \\Package und \\Environment
+
+	* installation.tex:
+	Links korrigiert, Umbruch "verschoenert", Inkonsistenzen entfernt
+
+	* grafiken.tex: ergaenzt und konsistent gemacht, Tippfehler korrigiert
+
+	* gliederung.tex:
+	Titelei leicht erweitert, Gliederung ergaenzt, ein \\ref eingefuegt, Anfuehrungszeichen angepasst (noetig?)
+
+	* gifs-etc.tex:
+	Gliederung an \\appendix angepasst, ein \\label ergaenzt
+
+	* fortgeschrittenes.tex: \\usepackages ergaenzt
+
+	* formeln.tex: Gliederung an \\appendix angepasst
+
+	* formatierung.tex: Tippfehler korrigiert, Ende erweitert
+
+	* erstes-dokument.tex:
+	Umbruch "verschoenert", Formulierungen angepasst, Allg. zum Editor Rechtschreibfehler korrigiert, Ergaenzungen: optionale Parameter hinzugefuegt, Unterteilung verfeinert mit "Umgebung", "Befehl", "Pakete"
+
+2004-02-27  Torsten Bronger  <bronger@physik.rwth-aachen.de>
+
+	* erstes-dokument.tex, formatierung.tex, tabellen.tex:
+	Zeilenumbruch nach \keystroke vermieden.
+
+2004-02-23  Torsten Bronger  <bronger@physik.rwth-aachen.de>
+
+	* gifs-etc.tex: Mit Erklärungen für GIF angefangen.
+
+	* webpages/index.xml: Auf neue DTD verwiesen.
+
+	* gliederung.tex, fortgeschrittenes.tex: Kleine Verbesserungen.
+
+2004-02-11  v-li  <v-li@wilson>
+
+	* einfuehrung.tex, erstes-dokument.tex:
+	Kleinere Korrekturen und Anpassungen
+
+	* yap.tex: Erster Absatz
+
+2004-02-04  Torsten Bronger  <bronger@physik.rwth-aachen.de>
+
+	* installation.tex, einfuehrung.tex: Formulierung verbessert.
+
+	* latex-tutorium.tex: \GIF hinzugefuegt.
+
+2004-02-02  trettin  <trettin@wilson>
+
+	* latex-tutorium.tex:
+	reversemarginpar gesetzt, weil innen mehr Platz ist.
+	\NZB angepasst.
+
+	* formeln.tex: Mathe-Zeug soweit abgeschlossen.
+
+	* formeln.tex: Rechtschreibfehler korrigiert.
+
+2004-01-28  Torsten Bronger  <bronger@physik.rwth-aachen.de>
+
+	* formeln.tex: Versehendlich eingefuegte Buchstaben geloescht.
+
+2004-01-23  Torsten Bronger  <bronger@physik.rwth-aachen.de>
+
+	* installation.tex: Index-Einträge hinzugefügt.
+
+	* latex-tutorium.tex: PDF-Schlüsselworte hinzugefügt.
+
+	* gliederung.tex: Auf neue Rechtschreibung umgestellt.
+
+	* einfuehrung.tex: Index-Eintrag hinzugefügt.
+
+	* fortgeschrittenes.tex: Kommentare gelöscht.
+
+2004-01-21  Torsten Bronger  <bronger@physik.rwth-aachen.de>
+
+	* latex-tutorium.bib: Kleine Verbesserungen.
+
+	* latex-tutorium.tex: "url" zu den "Highlighted Keywords" hinzugefügt.
+
+	* fortgeschrittenes.tex: Fussnoten und \url beschrieben.
+
+	* webpages/index.xml: Ein bißchen mehr Metadaten hinzugefügt.
+
+	* webpages/.cvsignore: New file.
+
+	* fortgeschrittenes.tex: Seitenränder und Sprachen hinzugefügt.
+
+	* webpages/Makefile, webpages/index.xml: New file.
+
+2004-01-20  Torsten Bronger  <bronger@physik.rwth-aachen.de>
+
+	* acrobat.tex, beispiele.tex, einfuehrung.tex, erstes-dokument.tex, fehler.tex, formatierung.tex, formeln.tex, fortgeschrittenes.tex, gifs-etc.tex, gliederung.tex, grafiken.tex, installation.tex, latex-tutorium.tex, literatur.tex, literaturverzeichnis.tex, tabellen.tex, yap.tex:
+	'tbook' im Copyright-Vermerk in 'LaTeX Tutorium' geändert.
+
+2004-01-19  Torsten Bronger  <bronger@physik.rwth-aachen.de>
+
+	* erstes-dokument.tex, formatierung.tex, installation.tex, tabellen.tex, einfuehrung.tex:
+	Kleine Verbesserungen.
+
+2004-01-17  Torsten Bronger  <bronger@physik.rwth-aachen.de>
+
+	* tabellen.tex: Gleitende Tabellen werden nun zuerst beschrieben.
+
+	* latex-tutorium.tex: Grafiken vor Tabellen geschoben.
+
+	* installation.tex: Tabelle und Ghostscript hinzugefügt.
+
+	* grafiken.tex: Auf TeXnicCenter-Funktionalität umgestellt.
+
+	* gliederung.tex:
+	Listen hierhin verschoben.  Überschriften-Befehle beschrieben.
+
+	* formatierung.tex:
+	Schritarten früeher, Listen zu "Gliederung" verschoben.
+
+	* erstes-dokument.tex: Kleine, strukturelle Verbesserungen.
+
+	* einfuehrung.tex: Kleine Verbesserung.
+
+	* abbildungen.eps, abbildungen.png, loewe.eps, loewe.jpg, ueberschriften.eps, ueberschriften.png:
+	New file.
+
+2004-01-16  Torsten Bronger  <bronger@physik.rwth-aachen.de>
+
+	* latex-tutorium.tex, tabellen.tex: Kleine Verbesserungen.
+
+	* installation.tex:
+	Tabelle mit Download-Möglichkeiten hinzugefügt.  Kleine Verbesserungen.
+
+	* einfuehrung.tex, erstes-dokument.tex, formatierung.tex, grafiken.tex:
+	NDR-Fehler korrigiert.
+
+	* literatur.tex: Label zur Literaturliste hinzugefügt.
+
+	* latex-tutorium.tex: Neuer Eintrag in \hyphenation.
+
+	* erstes-dokument.tex, formatierung.tex, gliederung.tex, tabellen.tex:
+	Kleine Verbesserungen.
+
+	* einfuehrung.tex: Abschnitt "Über dieses Tutorium" hinzugefügt.
+
+2004-01-15  Torsten Bronger  <bronger@physik.rwth-aachen.de>
+
+	* manifest.txt:
+	gliederung.tex, tabelle1.eps, tabelle1.png, tabelle2.eps und tabelle2.png
+	hinzugefügt.
+
+	* latex-tutorium.tex:
+	gliederung.tex hinzugefügt.  LaTeX-Schnipsel nun grau hinterlegt.
+
+	* formatierung.tex: Querverweise herausgeschoben.
+
+	* erstes-dokument.tex:
+	Abschnitt mit grundsätzlichen LaTeX-Regeln hinzugefügt.
+
+	* gliederung.tex: New file.
+
+	* tabellen.tex: Gleitobjekte verschoben.  Übersicht hinzugefügt.
+
+	* latex-tutorium.tex:
+	fixltx2e.sty hinzugefügt.  Gleitobjekt-Einstellungen verändert.
+
+	* latex-tutorium.bib: Neue Auflage des LaTeX-Begleiters erwähnt.
+
+	* formatierung.tex: Schriftarten hinzugefügt.
+
+	* erstes-dokument.tex: Labels ins Minimal-Dokument gesetzt.
+
+	* tabellen.tex: Kleine Korrektur.
+
+	* latex-tutorium.tex: keystrock-Paket mit eingebunden.
+
+	* formatierung.tex: Auszeichnungen und Sonderzeichen hinzugefügt.
+
+	* erstes-dokument.tex: \keystroke benutzt.
+
+	* latex-tutorium.tex: Kleine Anpassungen.
+
+	* tabellen.tex: Erste Fassung des Tabellen-Abschnitts ist fertig.
+
+	* tabelle1.eps, tabelle1.png, tabelle2.eps, tabelle2.png: New file.
+
+2004-01-15  trettin  <trettin@wilson>
+
+	* latex-tutorium.tex:
+	\Rect hinzugefügt.   \DeclareMathOperator muss in die Präambel.
+
+2004-01-14  trettin  <trettin@wilson>
+
+	* formeln.tex:
+	Initial Version.
+
+2004-01-14  Torsten Bronger  <bronger@physik.rwth-aachen.de>
+
+	* .cvsignore: Added some wildcards and more.
+
+	* literatur.tex: Literaturverzeichnis hinzugefügt.
+
+	* latex-tutorium.tex:
+	Kopfzeilen verändert, babel-->german.sty, Literatur verschoben.
+
+	* grafiken.tex: Kleine Umformulierungen.
+
+	* gifs-etc.tex:
+	\versalien funktioniert in Überschriften mit pdflatex nicht.
+
+	* germhyph.sty: Wieder auf german.sty zurückgestellt.
+
+	* latex-tutorium.bib, latex-tutorium.bst, latex-tutorium.dbj: New file.
+
+	* tabellen.tex: Überschrift für Gleittabellen hinzugefügt.
+
+	* latex-tutorium.tex:
+	Varioref und einige Akonyme zur Praeambel hinzugefügt.
+
+	* installation.tex: Kleine Umformulierungen.
+
+	* erstes-dokument.tex: "Anatomie des LaTeX-Befehls" verbessert.
+
+	* einfuehrung.tex: Alter von LaTeX korrigiert.
+
+2004-01-14  trettin  <trettin@wilson>
+
+	* latex-tutorium.tex: Changed \input foo to \input{foo}
+
+2004-01-13  Torsten Bronger  <bronger@physik.rwth-aachen.de>
+
+	* grafiken.tex: Rumpftext zu Grafiken hinzugefügt.
+
+	* acrobat.tex, beispiele.tex, einfuehrung.tex, erstes-dokument.tex, fehler.tex, formatierung.tex, formeln.tex, fortgeschrittenes.tex, germhyph.sty, gifs-etc.tex, grafiken.tex, installation.tex, literatur.tex, literaturverzeichnis.tex, manifest.txt, tabellen.tex, yap.tex:
+	Richtigen Copyright-Vermerk hineingeschrieben.
+
+	* .cvsignore, COPYING, manifest.txt: New file.
+
+	* latex-tutorium.tex: Copyright hinzugefügt.
+
+2004-01-12  Torsten Bronger  <bronger@physik.rwth-aachen.de>
+
+	* acrobat.tex, beispiele.tex, einfuehrung.tex, erstes-dokument.tex, fehler.tex, formatierung.tex, formeln.tex, fortgeschrittenes.tex, germhyph.sty, gifs-etc.tex, grafiken.tex, installation.tex, latex-tutorium.tex, literatur.tex, literaturverzeichnis.tex, tabellen.tex, yap.tex:
+	Initial import.
+
+	* acrobat.tex, beispiele.tex, einfuehrung.tex, erstes-dokument.tex, fehler.tex, formatierung.tex, formeln.tex, fortgeschrittenes.tex, germhyph.sty, gifs-etc.tex, grafiken.tex, installation.tex, latex-tutorium.tex, literatur.tex, literaturverzeichnis.tex, tabellen.tex, yap.tex:
+	New file.
+
