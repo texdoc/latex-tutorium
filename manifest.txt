@@ -2,7 +2,7 @@
 %
 %     manifest.tex -- Part of the LaTeX Tutorium
 %     Copyright 2004 Project Members of
-%                    http://sourceforge.net/projects/latex-tutorium/
+%                    https://github.com/latextemplates/latex-tutorium/
 %                    
 %
 %   This program is free software; you can redistribute it and/or
@@ -25,7 +25,7 @@
 
 
 The project LaTeX-Tutorium, hosted on
-<http://sourceforge.net/projects/latex-tutorium>, consists of the following
+<https://github.com/latextemplates/latex-tutorium/>, consists of the following
 files:
 
 acrobat.tex          formeln.tex            literatur.tex
