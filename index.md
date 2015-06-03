@@ -1,3 +1,8 @@
+---
+title: Das LaTeX-Tutorium
+layout: index
+---
+
 # Das LaTeX-Tutorium
 
 Torsten Bronger,  Mark Trettin, Christian Faulhammer
